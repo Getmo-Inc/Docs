@@ -5,6 +5,11 @@ This document describes the services exposed by the SMARTPUSH REST API platform.
 
 To access the service you must have the credentials: **`devid`**, **`appid`**. Ask our support team via e-mail: suporte@getmo.com.br.
 
+## Libraries
+
+- [PHP Connector](https://github.com/Getmo-Inc/Smartpush-Php-Connector)
+- [Java Connector](https://github.com/Getmo-Inc/Smartpush-Java-Connector)
+
 ### API Endpoint
 ```
 https://api.getmo.com.br
