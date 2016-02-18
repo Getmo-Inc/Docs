@@ -1,3 +1,0 @@
-### REST API Docs
-
-Em construção...
