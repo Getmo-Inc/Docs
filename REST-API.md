@@ -101,7 +101,7 @@ http://api.getmo.com.br
             "aps": {
                 "alert": "Getmo Smartpush. Big Saving, No Waiting. Mega Deals!"
             },
-            "url": "http://www.getmo.com.br",
+            "your-custom-url": "http://www.getmo.com.br",
             "your-custom-property-2": "you custom value 2",
             "your-custom-property-3": "you custom value 3",
             "your-custom-property-4": "you custom value 4"
@@ -112,11 +112,22 @@ http://api.getmo.com.br
       
       - ANDROID:
       
-        In progress...
+        Android gives you flexibility, so you don't need to follow conventions. The payload schema is you that defines.
+        ```json
+        {
+            "your-custom-title": "Getmo Smartpush",
+            "your-custom-text": "Big Saving, No Waiting. Mega Deals!",
+            "your-custom-url": "http://www.getmo.com.br",
+            "your-custom-icon": "7",
+            "your-custom-property-2": "you custom value 2",
+            "your-custom-property-3": "you custom value 3",
+            "your-custom-property-4": "you custom value 4"
+        }
+        ```
       
       - WINDOWS:
       
-        In progress...
+        Documentation in progress...
       
       - CHROME:
         
@@ -216,30 +227,255 @@ http://api.getmo.com.br
         }
         ```
     
-  - **filter**:
+  - **filter**: (required) **`object`**
   
-    In progress...
+    - **type**: (required) **`string`** | `"TAG"`
+    
+      The type of filter that you will use.
+    
+    - **rules**: (required) **`array`**
+                
+      An array of `arrays` with the following entries: `["tag", "operator", "value"]`.
+      
+      - **[0] = tag**: (required) **`string`** | `"..."`
+      
+        There are five types of tags that you can register on the Administrator, `STRING`, `NUMERIC`, `TIMESTAMP`, `BOOLEAN`, `LIST`, and it must be done before usage. Visit [admin.getmo.com.br/tags](https://admin.getmo.com.br/apps). 
+      
+      - **[1] = operator** (required) **`string`** | `"="`, `"<"`, `">"`, `"<="`, `">="`, `"IN"`.
+      
+        Operators diferent than `"="` and `"IN"` can be used only on `NUMERIC` and `TIMESTAMP` tag types
+        
+      - **[2] = value** (required) **`string`** or **`array`**
+
+        If you choose `"IN"` as operator, the **value** must be an **`array`** of strings. Otherwise the value must be a **`string`**.
+        
+      Example with `"="` operator:
+      ```json
+      ["NOTIFICATION_CONTROL", "=", "UPDATES"]
+      ```
+      
+      Example with `"IN"` operator:
+      ```json
+      ["NOTIFICATION_CONTROL", "IN", ["UPDATES", "TECHNOLOGY", "COMMERCIAL"]]
+      ```
      
-  - **Full Example: (in progress)**
+  - **Full Example:**
   ```json
-  {}
+  {
+      "alias": "Smartpush Campaign",
+      "prod": 1,
+      "when": "now",
+      "devid": "000000000000000",
+      "notifications": [{
+          "appid": "000000000000000",
+          "platform": "IOS",
+          "params": {
+              "aps": {
+                  "alert": "Getmo Smartpush. Big Saving, No Waiting. Mega Deals!",
+                  "badge": "1",
+                  "sound": "default"
+              },
+              "url": "http://www.getmo.com.br"
+          }
+      },{
+          "appid": "000000000000000",
+          "platform": "ANDROID",
+          "params": {
+              "title": "Getmo Smartpush",
+              "detail": "Big Saving, No Waiting. Mega Deals!",
+              "url": "http://www.getmo.com.br"
+          }
+      },{
+          "appid": "000000000000000",
+          "platform": "CHROME",
+          "params": {
+              "title": "Getmo Smartpush",
+              "text": "Big Saving, No Waiting. Mega Deals!",
+              "icon": "https://admin.getmo.com.br/assets/img/logo-getmo.png",
+              "clickUrl": "http://www.getmo.com.br"
+          }
+      },{
+          "appid": "000000000000000",
+          "platform": "SAFARI",
+          "params": {
+              "title": "Getmo Smartpush",
+              "text": "Big Saving, No Waiting. Mega Deals!",
+              "action": "See More",
+              "clickUrl": "http://www.getmo.com.br"
+          }
+      },{
+         "appid": "000000000000000",
+         "platform": "FIREFOX",
+         "params": {
+             "title": "Getmo Smartpush",
+             "text": "Big Saving, No Waiting. Mega Deals!",
+             "icon": "https://admin.getmo.com.br/assets/img/logo-getmo.png",
+             "clickUrl": "http://www.getmo.com.br"
+         }
+     }],
+     "filter": {
+        "type": "TAG",
+        "rules": [
+            ["NOTIFICATION_CONTROL", "=", ["UPDATES", "TECHNOLOGY", "COMMERCIAL"]]
+        ]
+     }
+  }
+  ```
+  
+  Simple Example:
+  ```json
+  {
+      "alias": "Smartpush Campaign",
+      "prod": 1,
+      "when": "01/03/2016 14:30:00",
+      "devid": "000000000000000",
+      "notifications": [{
+          "appid": "000000000000000",
+          "platform": "ANDROID",
+          "params": {
+              "title": "Getmo Smartpush",
+              "detail": "Big Saving, No Waiting. Mega Deals!",
+          }
+      }],
+      "filter": {
+          "type": "TAG",
+          "rules": [
+              ["SMARTPUSH_ID", "=", "ONAX"]
+          ]
+      }
+  }
   ```
 
 - **Success Response**
     
     - Code: 200
-    - Content: `{"status":true,"code":200,"message":"Success","pushid":"..."}`
-       - status: `true`
-       - code: `200`
-       - message: `Success`
-       - pushid: `pushid`. Unique token for this request. Ex: `84375893c8eadfabd79d81592f244ed2`
+    - Response:
+      - `pushid`: Unique token generated for this push notification request.
+    ```json
+    {
+        "status": true,
+        "code": 200,
+        "message": "Success",
+        "pushid": "9268e6478485451ede32d1f141587448"
+    }
+    ```
+      
 
 - **Error Response**
 
     - Code: 404, 406, 422 or 500
-    - Content: `{"status":false,"code":"...","message":"..."}`
-        - status: `false`
-        - code: `404`, `406`, `422`, `500
-        - message: `Custom message with more details about the error.`
+    - Response:
+      - `message`: Custom message with more details about the error.
+    ```json
+    {
+        "status": false,
+        "code": "404",
+        "message": "devid not found."
+    }
+    ```      
 
-Docs In progress
+### Get Information about a Push Notification
+
+- **URL**
+
+    /push/{devid}/{pushid}
+
+- **Method**
+
+    GET
+
+- **Success Response**
+    
+    - Code: 200
+    - Response with notification **status** = `WAITING`
+    ```json
+    {
+        "status": true,
+        "code": 200,
+        "message": "Success",
+        "time-left": "7 minute from now",
+        "date": "15/02/2016 21:30:00",
+        "pushid":"9268e6478485451ede32d1f141587448",
+        "notifications":[{
+            "appid": "000000000000000",
+            "status":"WAITING"
+        }]
+    }
+    ```
+    - Response with notification **status** = `SENT`
+    ```json
+    {
+        "status": true,
+        "code": 200,
+        "message": "Success",
+        "pushid": "9268e6478485451ede32d1f141587448",
+        "notifications": [{
+            "appid": "000000000000000",
+            "status": "SENT",
+            "sent_at": "15/02/2016 21:30:03"
+        }]
+    }
+    ```
+
+
+### Cancel a Push Notification
+
+- **URL**
+
+    /push/{devid}/{pushid}
+
+- **Method**
+
+    PUT
+
+- **Success Response**
+
+    - Code: 200
+    - Response with notification **status** = `WAITING`
+    ```json
+    {
+        "status": true,
+        "code": 200,
+        "message": "Success",
+        "pushid": "9268e6478485451ede32d1f141587448",
+        "notifications": [{
+            "appid": "000000000000000",
+            "status": "CANCELED"
+        }]
+    }
+    ```
+    - Response with notification **status** = `SENT`
+    ```json
+    {
+        "status": true,
+        "code": 200,
+        "message": "Success",
+        "pushid": "9268e6478485451ede32d1f141587448",
+        "notifications": [{
+            "appid": "000000000000000",
+            "status": "SENT",
+            "message": "The status of this Notification could not be changed because it has already been sent."
+        }]
+    }
+    ```
+    - Response with notification **status** = `CANCELED`
+    ```json
+    {
+        "status": true,
+        "code": 200,
+        "message": "Success",
+        "pushid": "9268e6478485451ede32d1f141587448",
+        "notifications": [{
+            "appid": "000000000000000",
+            "status": "CANCELED",
+            "message": "The status of this Notification could not be changed because it has already been canceled."
+        }]
+    }
+    ```
+
+### Support
+Jonathan Martins
+webmaster@getmo.com.br
+---
+
+> Developed by Getmo
