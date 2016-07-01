@@ -254,20 +254,20 @@ http://api.getmo.com.br
       
         There are five types of tags that you can register on the Administrator, `STRING`, `NUMERIC`, `TIMESTAMP`, `BOOLEAN`, `LIST`, and it must be done before usage. Visit [admin.getmo.com.br/tags](https://admin.getmo.com.br/apps). 
       
-      - **[1] = operator** (required) **`string`** | `"="`, `"<"`, `">"`, `"<="`, `">="`, `"IN"`.
+      - **[1] = comparator** (required) **`string`** | `"="`, `"<"`, `">"`, `"<="`, `">="`, `"IN"`.
       
-        Operators diferent than `"="` and `"IN"` can be used only on `NUMERIC` and `TIMESTAMP` tag types
+        Comparators diferent than `"="` and `"IN"` can be used only on `NUMERIC` and `TIMESTAMP` tag types
         
       - **[2] = value** (required) **`string`** or **`array`**
 
-        If you choose `"IN"` as operator, the **value** must be an **`array`** of strings. Otherwise the value must be a **`string`**.
+        If you choose `"IN"` as comparator, the **value** must be an **`array`** of strings. Otherwise the value must be a **`string`**.
         
-      Example with `"="` operator:
+      Example with `"="` comparator:
       ```json
       ["NOTIFICATION_CONTROL", "=", "UPDATES"]
       ```
       
-      Example with `"IN"` operator:
+      Example with `"IN"` comparator:
       ```json
       ["NOTIFICATION_CONTROL", "IN", ["UPDATES", "TECHNOLOGY", "COMMERCIAL"]]
       ```
