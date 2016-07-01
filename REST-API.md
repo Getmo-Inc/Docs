@@ -12,7 +12,7 @@ To access the service you must have the credentials: **`devid`**, **`appid`**. A
 
 ### API Endpoint
 ```
-https://api.getmo.com.br
+https://api.getmo.com.br (recomended)
 
 or
 
@@ -73,13 +73,13 @@ http://api.getmo.com.br
       
       - After register your application, you find the `appid` in the apps list page: [admin.getmo.com.br/apps](https://admin.getmo.com.br/apps)
     
-    - **platform**: (required) **`string`** | `"IOS"`, `"ANDROID"`, `"WINDOWS"`, `"CHROME"`, `"SAFARI"`, `"FIREFOX"`
+    - **platform**: (required) **`string`** | `"iOS"`, `"ANDROID"`, `"WINDOWS"`, `"CHROME"`, `"SAFARI"`, `"FIREFOX"`
     
     - **params**: (required) **`object`**
     
       The `params` object hold the information that you will send through push notification. Also know as `payload`, every platform has his own `payload` properties schema. See below:
       
-      - IOS:
+      - iOS:
       
         - **aps**: (required) **`object`**
                
@@ -236,11 +236,19 @@ http://api.getmo.com.br
   
     - **type**: (required) **`string`** | `"TAG"`
     
-      The type of filter that you will use.
+      The type of the filter.
+      
+    - **range**: (optional) **`string`** | `"all"`
+          
+      The range of days that the filter will use when the job is processed. The entry can be one of these: `7`, `15`, `30`, `60`, `90`, `all` (default).
+      
+    - **operator**: (optional) **`string`** | `"AND"`
+                
+      The operator that the filter will use to do the comparisons. The entry can be one of these: `AND` (default), `OR`.
     
     - **rules**: (required) **`array`**
                 
-      An array of `arrays` with the following entries: `["tag", "operator", "value"]`.
+      An array of `arrays` with the following entries: `["tag", "comparator", "value"]`.
       
       - **[0] = tag**: (required) **`string`** | `"..."`
       
@@ -269,7 +277,7 @@ http://api.getmo.com.br
   {
       "alias": "Smartpush Campaign",
       "prod": 1,
-      "when": "now",
+      "when": "01/03/2016 14:30:00",
       "devid": "000000000000000",
       "notifications": [{
           "appid": "000000000000000",
@@ -321,7 +329,8 @@ http://api.getmo.com.br
      "filter": {
         "type": "TAG",
         "rules": [
-            ["NOTIFICATION_CONTROL", "=", ["UPDATES", "TECHNOLOGY", "COMMERCIAL"]]
+            ["STATUS", "=", "ON-BOARD"],
+            ["NOTIFICATION_CONTROL", "IN", ["UPDATES", "TECHNOLOGY", "COMMERCIAL"]]
         ]
      }
   }
@@ -332,7 +341,7 @@ http://api.getmo.com.br
   {
       "alias": "Smartpush Campaign",
       "prod": 1,
-      "when": "01/03/2016 14:30:00",
+      "when": "now",
       "devid": "000000000000000",
       "notifications": [{
           "appid": "000000000000000",
@@ -344,8 +353,11 @@ http://api.getmo.com.br
       }],
       "filter": {
           "type": "TAG",
+          "range": "30",
+          "operator": "OR",
           "rules": [
-              ["SMARTPUSH_ID", "=", "ONAX"]
+              ["LAST_ORDER_DATE", ">=", "1467401769"],
+              ["SMARTPUSH_ID", "IN", ["ONAX", "EST", "SERUM", "CTHULHU"]]
           ]
       }
   }
