@@ -578,7 +578,7 @@ http://api.getmo.com.br
 
 - **Success Response**
 
-  **Important:** All dates returned are in UTC.
+    **Important:** All dates returned are in UTC.
 
     - Code: 200
     - Response
@@ -652,7 +652,7 @@ http://api.getmo.com.br
 
 - **Success Response**
 
-  **Important:** All dates returned are in UTC.
+    **Important:** All dates returned are in UTC.
 
     - Code: 200
     - Response
@@ -754,7 +754,7 @@ http://api.getmo.com.br
     
 - **Success Response**
 
-  **Important:** This request is processed in background, so it will always return success.
+    **Important:** This request is processed in background, so it will always return success.
 
     - Code: 200
     - Response
@@ -792,13 +792,13 @@ http://api.getmo.com.br
     
 - **Success Response**
 
-  **Important:** This request is processed in background, so it will always return success.
+    **Important:** This request is processed in background, so it will always return success.
 
     - Code: 200
     - Response
     ```json
     {
-      "status": true,
+      "status": "true",
       "message": "Success"
     }
     ```  
