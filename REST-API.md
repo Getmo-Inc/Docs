@@ -495,7 +495,7 @@ http://api.getmo.com.br
 
 - **URL**
 
-    /push/{devid}/{pushid}/hidden
+    /push/{devid}/{pushid}/hide
 
 - **Method**
 
@@ -519,7 +519,7 @@ http://api.getmo.com.br
 
 - **URL**
 
-    /push/{devid}/{pushid}/hidden/{appid}/{hwid}
+    /push/{devid}/{pushid}/hide/{appid}/{hwid}
 
 - **Method**
 
