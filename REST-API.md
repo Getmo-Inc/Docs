@@ -156,7 +156,7 @@ http://api.getmo.com.br
         ```json
         {
             "title": "Getmo Smartpush",
-            "text": "Big Saving, No Waiting. Mega Deals!",
+            "text": "Big Saving, No Waiting. Mega Deals!"
         }
         ```
         Complete Example:
@@ -165,7 +165,7 @@ http://api.getmo.com.br
             "title": "Getmo Smartpush",
             "text": "Big Saving, No Waiting. Mega Deals!",
             "icon": "https://admin.getmo.com.br/assets/img/logo-getmo.png",
-            "clickUrl": "http://www.getmo.com.br",
+            "clickUrl": "http://www.getmo.com.br"
         }
         ```
 
@@ -192,7 +192,7 @@ http://api.getmo.com.br
         {
             "title": "Getmo Smartpush",
             "body": "Big Saving, No Waiting. Mega Deals!",
-            "clickUrl": "http://www.getmo.com.br",
+            "clickUrl": "http://www.getmo.com.br"
         }
         ```
         See complete docs on [Apple Notification for Websites](https://developer.apple.com/library/mac/documentation/NetworkingInternet/Conceptual/NotificationProgrammingGuideForWebsites/PushNotifications/PushNotifications.html#//apple_ref/doc/uid/TP40013225-CH3-SW12).
@@ -219,7 +219,7 @@ http://api.getmo.com.br
         ```json
         {
             "title": "Getmo Smartpush",
-            "text": "Big Saving, No Waiting. Mega Deals!",
+            "text": "Big Saving, No Waiting. Mega Deals!"
         }
         ```
         Complete Example:
@@ -228,7 +228,7 @@ http://api.getmo.com.br
             "title": "Getmo Smartpush",
             "text": "Big Saving, No Waiting. Mega Deals!",
             "icon": "https://admin.getmo.com.br/assets/img/logo-getmo.png",
-            "clickUrl": "http://www.getmo.com.br",
+            "clickUrl": "http://www.getmo.com.br"
         }
         ```
     
@@ -348,7 +348,7 @@ http://api.getmo.com.br
           "platform": "ANDROID",
           "params": {
               "title": "Getmo Smartpush",
-              "detail": "Big Saving, No Waiting. Mega Deals!",
+              "detail": "Big Saving, No Waiting. Mega Deals!"
           }
       }],
       "filter": {
@@ -373,7 +373,7 @@ http://api.getmo.com.br
         "status": true,
         "code": 200,
         "message": "Success",
-        "pushid": "9268e6478485451ede32d1f141587448"
+        "pushid": "00000000000000000000000000000000"
     }
     ```
       
@@ -412,7 +412,7 @@ http://api.getmo.com.br
         "message": "Success",
         "time-left": "7 minute from now",
         "date": "15/02/2016 21:30:00",
-        "pushid":"9268e6478485451ede32d1f141587448",
+        "pushid":"00000000000000000000000000000000",
         "notifications":[{
             "appid": "000000000000000",
             "status":"WAITING"
@@ -425,7 +425,7 @@ http://api.getmo.com.br
         "status": true,
         "code": 200,
         "message": "Success",
-        "pushid": "9268e6478485451ede32d1f141587448",
+        "pushid": "00000000000000000000000000000000",
         "notifications": [{
             "appid": "000000000000000",
             "status": "SENT",
@@ -439,7 +439,7 @@ http://api.getmo.com.br
 
 - **URL**
 
-    /push/{devid}/{pushid}
+    /push/{devid}/{pushid}/cancel
 
 - **Method**
 
@@ -454,7 +454,7 @@ http://api.getmo.com.br
         "status": true,
         "code": 200,
         "message": "Success",
-        "pushid": "9268e6478485451ede32d1f141587448",
+        "pushid": "00000000000000000000000000000000",
         "notifications": [{
             "appid": "000000000000000",
             "status": "CANCELED"
@@ -467,7 +467,7 @@ http://api.getmo.com.br
         "status": true,
         "code": 200,
         "message": "Success",
-        "pushid": "9268e6478485451ede32d1f141587448",
+        "pushid": "00000000000000000000000000000000",
         "notifications": [{
             "appid": "000000000000000",
             "status": "SENT",
@@ -481,7 +481,7 @@ http://api.getmo.com.br
         "status": true,
         "code": 200,
         "message": "Success",
-        "pushid": "9268e6478485451ede32d1f141587448",
+        "pushid": "00000000000000000000000000000000",
         "notifications": [{
             "appid": "000000000000000",
             "status": "CANCELED",
@@ -489,6 +489,320 @@ http://api.getmo.com.br
         }]
     }
     ```
+    
+    
+### Hide a Push Notification
+
+- **URL**
+
+    /push/{devid}/{pushid}/hidden
+
+- **Method**
+
+    PUT
+
+- **Success Response**
+
+    - Code: 200
+    - Response
+    ```json
+    {
+      "status": true,
+      "message": "Success",
+      "pushid": "00000000000000000000000000000000",
+      "hidden": 1
+    }
+    ```
+    
+    
+### Hide a Push Notification for a specific Device 
+
+- **URL**
+
+    /push/{devid}/{pushid}/hidden/{appid}/{hwid}
+
+- **Method**
+
+    PUT
+
+- **Success Response**
+
+    - Code: 200
+    - Response
+    ```json
+    {
+      "status": true,
+      "message": "Success",
+      "devid": "000000000000000",
+      "pushid": "00000000000000000000000000000000",
+      "appid": "000000000000000",
+      "hwid": "000000000000000",
+      "hidden": 1
+    }
+    ```
+
+
+### Get Last ten (10) Notifications
+
+- **URL**
+
+    /notifications/last
+
+- **Method**
+
+    POST
+
+- **Params**
+
+  - **devid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Developer Identifier.
+      
+  - **appid**: (required) **`string`** | `"000000000000000"`
+  
+    Unique Smartpush Application Identifier.
+    
+  - **hwid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Device Identifier.
+    
+  - **platform**: (required) **`string`** | `"iOS"`, `"ANDROID"`, `"WINDOWS"`, `"CHROME"`, `"SAFARI"`, `"FIREFOX"`
+  
+  - **startingDate**: (optional) **`datetime`** | `"Y-m-d H:i:s"`
+  
+    With this optional parameter you can define a start point in time to get the notifications.
+    
+  - **dateFormat**: (optional) **`string`** | `"Y-m-d H:i:s"` (default), `"d/m/Y H:i:s"`, `"d-m-Y H:i:s"`, `"d.m.Y H:i:s"` 
+      
+    With the dateFormat parameter you can choose one of the templates for the output date format.
+
+- **Success Response**
+
+  **Important:** All dates returned are in UTC.
+
+    - Code: 200
+    - Response
+    ```json
+    [
+      {
+        "pushid": "00000000000000000000000000000000",
+        "clicked": 0,
+        "payload": {
+          "title": "Example Title",
+          "message": "Example Message"
+        },
+        "extra": {
+          "title": "Example Title",
+          "message": "Example Message"
+        },
+        "created_at": "0000-00-00 00:00:00",
+        "sent_at": "0000-00-00 00:00:00"
+      },
+      {
+        "pushid": "00000000000000000000000000000000",
+        "clicked": 0,
+        "payload": {
+          "title": "Example Title 2",
+          "message": "Example Message 2"
+        },
+        "extra": {
+          "title": "Example Title 2",
+          "message": "Example Message 2"
+        },
+        "created_at": "0000-00-00 00:00:00",
+        "sent_at": "0000-00-00 00:00:00"
+      }
+    ]
+    ```
+
+
+### Get Last ten (10) Unread Notifications
+
+- **URL**
+
+    /notifications/unread
+
+- **Method**
+
+    POST
+
+- **Params**
+
+  - **devid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Developer Identifier.
+      
+  - **appid**: (required) **`string`** | `"000000000000000"`
+  
+    Unique Smartpush Application Identifier.
+    
+  - **hwid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Device Identifier.
+    
+  - **platform**: (required) **`string`** | `"iOS"`, `"ANDROID"`, `"WINDOWS"`, `"CHROME"`, `"SAFARI"`, `"FIREFOX"`
+  
+  - **startingDate**: (optional) **`datetime`** | `"Y-m-d H:i:s"`
+  
+    With this optional parameter you can define a start point in time to get the notifications.
+    
+  - **dateFormat**: (optional) **`string`** | `"Y-m-d H:i:s"` (default), `"d/m/Y H:i:s"`, `"d-m-Y H:i:s"`, `"d.m.Y H:i:s"` 
+      
+    With the dateFormat parameter you can choose one of the templates for the output date format.
+
+- **Success Response**
+
+  **Important:** All dates returned are in UTC.
+
+    - Code: 200
+    - Response
+    ```json
+    [
+      {
+        "pushid": "00000000000000000000000000000000",
+        "payload": {
+          "title": "Example Title",
+          "message": "Example Message"
+        },
+        "extra": {
+          "title": "Example Title",
+          "message": "Example Message"
+        },
+        "created_at": "0000-00-00 00:00:00",
+        "sent_at": "0000-00-00 00:00:00"
+      },
+      {
+        "pushid": "00000000000000000000000000000000",
+        "payload": {
+          "title": "Example Title 2",
+          "message": "Example Message 2"
+        },
+        "extra": {
+          "title": "Example Title 2",
+          "message": "Example Message 2"
+        },
+        "created_at": "0000-00-00 00:00:00",
+        "sent_at": "0000-00-00 00:00:00"
+      }
+    ]
+    ```
+
+
+### Get the Extra payload of a specific Push Notification
+
+- **URL**
+
+    /notifications/extra
+
+- **Method**
+
+    POST
+
+- **Params**
+
+  - **devid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Developer Identifier.
+      
+  - **appid**: (required) **`string`** | `"000000000000000"`
+  
+    Unique Smartpush Application Identifier.
+    
+  - **pushid**: (required) **`string`** | `"00000000000000000000000000000000"`
+    
+    Unique Smartpush Push Identifier.
+    
+- **Success Response**
+
+    - Code: 200
+    - Response
+    ```json
+    {
+      "title": "Example Title",
+      "message": "Example Message"
+    }
+    ```  
+
+
+### Mark one Push Notification as Read
+
+- **URL**
+
+    /notifications/read-one
+
+- **Method**
+
+    DELETE
+
+- **Params**
+
+  - **devid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Developer Identifier.
+      
+  - **appid**: (required) **`string`** | `"000000000000000"`
+  
+    Unique Smartpush Application Identifier.
+    
+  - **hwid**: (required) **`string`** | `"000000000000000"`
+        
+    Unique Smartpush Device Identifier.
+    
+  - **pushid**: (required) **`string`** | `"00000000000000000000000000000000"`
+      
+    Unique Smartpush Push Identifier.  
+    
+- **Success Response**
+
+  **Important:** This request is processed in background, so it will always return success.
+
+    - Code: 200
+    - Response
+    ```json
+    {
+      "status": true,
+      "message": "Success"
+    }
+    ```  
+    
+    
+### Mark all Push Notifications as Read
+
+- **URL**
+
+    /notifications/read-all
+
+- **Method**
+
+    DELETE
+
+- **Params**
+
+  - **devid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Developer Identifier.
+      
+  - **appid**: (required) **`string`** | `"000000000000000"`
+  
+    Unique Smartpush Application Identifier.
+    
+  - **hwid**: (required) **`string`** | `"000000000000000"`
+        
+    Unique Smartpush Device Identifier.
+    
+- **Success Response**
+
+  **Important:** This request is processed in background, so it will always return success.
+
+    - Code: 200
+    - Response
+    ```json
+    {
+      "status": true,
+      "message": "Success"
+    }
+    ```  
+
 
 ### Support
 Jonathan Martins
