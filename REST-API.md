@@ -519,11 +519,29 @@ http://api.getmo.com.br
 
 - **URL**
 
-    /push/{devid}/{pushid}/hide/{appid}/{hwid}
+    /notifications/hide
 
 - **Method**
 
     PUT
+    
+- **Params**
+
+  - **devid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Developer Identifier.
+      
+  - **appid**: (required) **`string`** | `"000000000000000"`
+  
+    Unique Smartpush Application Identifier.
+    
+  - **pushid**: (required) **`string`** | `"00000000000000000000000000000000"`
+      
+    Unique Smartpush Push Identifier.  
+    
+  - **hwid**: (required) **`string`** | `"000000000000000"`
+    
+    Unique Smartpush Device Identifier.    
 
 - **Success Response**
 
