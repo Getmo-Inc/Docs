@@ -30,19 +30,16 @@ http://api.getmo.com.br
     POST
 
 - **Params**
-
-  data: (required) **`JSON string`** | `"{}"`
-  
-  Examle:
-  ```
-  data={...}
-  ```
     
   **JSON String Data:**
 
   - **alias**: (optional) **`string`** | `"Smartpush Campaign"`
     
     Custom identifier for this push notification.
+    
+  - **inbox**: (optional) **`boolean`** | `true`, `false` (default)
+        
+     If you set inbox to true the Push Notification will be save in Inbox and will not be Sent. 
       
   - **prod**: (optional) **`number`** | `0`, `1`
     
@@ -65,7 +62,7 @@ http://api.getmo.com.br
   
   - **notifications**: (required) **`array`** 
 
-    An array of `objects` with the following properties: `appid`, `platform`, `params`.
+    An array of `objects` with the following properties: `appid`, `platform`, `params`, `extra` (optional).
     
     - **appid**: (required) **`string`** | `"000000000000000"`
     
@@ -231,6 +228,23 @@ http://api.getmo.com.br
             "clickUrl": "http://www.getmo.com.br"
         }
         ```
+
+    - **extra**: (optional) **`object`**
+    
+      The `extra` object holds information that will not be sent with the Push Notification. You can get more information about how to get these extra payload in the `/notifications/extra` endpoint section.  
+    
+        Example:
+        ```json
+        {
+          "your-custom-title": "Getmo Smartpush",
+          "your-custom-text": "Big Saving, No Waiting. Mega Deals!",
+          "your-custom-url": "http://www.getmo.com.br",
+          "your-custom-icon": "7",
+          "your-custom-property-2": "you custom value 2",
+          "your-custom-property-3": "you custom value 3",
+          "your-custom-property-4": "you custom value 4"
+        }
+        ```
     
   - **filter**: (required) **`object`**
   
@@ -375,8 +389,7 @@ http://api.getmo.com.br
         "message": "Success",
         "pushid": "00000000000000000000000000000000"
     }
-    ```
-      
+    ```     
 
 - **Error Response**
 
@@ -390,6 +403,7 @@ http://api.getmo.com.br
         "message": "devid not found."
     }
     ```      
+
 
 ### Get Information about a Push Notification
 
@@ -433,6 +447,56 @@ http://api.getmo.com.br
         }]
     }
     ```
+
+    
+### Get Information about a Push Notification Alias
+
+- **URL**
+
+    /push/{devid}/{alias}/alias
+
+- **Method**
+
+    GET
+
+- **Success Response**
+    
+    - Code: 200
+    - Response with notification **status** = `WAITING`
+    ```json
+    {
+        "status": true,
+        "code": 200,
+        "message": "Success",
+        "alias":"Searched Alias",
+        "notifications":[{
+            "pushid": "00000000000000000000000000000000",
+            "appid": "000000000000000",
+            "status":"WAITING",
+            "push_total": 15,
+            "push_sended": 15,
+            "time-left": "7 minute from now",
+            "date": "15/02/2016 21:30:00"
+        }]
+    }
+    ```
+    - Response with notification **status** = `SENT`
+    ```json
+    {
+        "status": true,
+        "code": 200,
+        "message": "Success",
+        "alias": "Searched Alias",
+        "notifications": [{
+            "pushid": "00000000000000000000000000000000",
+            "appid": "000000000000000",
+            "status": "SENT",
+            "push_total": 15,
+            "push_sended": 15,
+            "sent_at": "15/02/2016 21:30:03"
+        }]
+    }
+    ```    
 
 
 ### Cancel a Push Notification
