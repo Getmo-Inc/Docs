@@ -448,6 +448,38 @@ http://api.getmo.com.br
     }
     ```
 
+
+### Update the Payload and Extra information about a Push Notification
+
+- **URL**
+
+    /push/{devid}/{pushid}
+
+- **Method**
+
+    PUT
+
+- **Params**
+
+  - **payload**: **`json object`** | `"{}"`
+
+    The json object that represent the new payload of the Push Notification.
+
+  - **extra**: **`json object`** | `"{}"`
+
+    The json object that represent the new Extra payload of the Push Notification.
+
+- **Success Response**
+    
+    - Code: 200
+    - Response with notification **status** = `WAITING`
+    ```json
+    {
+        "status": true,
+        "message": "Success",
+    }
+    ```
+
     
 ### Get Information about a Push Notification Alias
 
