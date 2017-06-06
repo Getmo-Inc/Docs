@@ -472,7 +472,6 @@ http://api.getmo.com.br
 - **Success Response**
     
     - Code: 200
-    - Response with notification **status** = `WAITING`
     ```json
     {
         "status": true,
