@@ -5,3 +5,5 @@
 - [PHP-API Connector](https://github.com/Getmo-Inc/Smartpush-Php-Connector/blob/master/README.md)
 
 - [REST-API](https://github.com/Getmo-Inc/Docs/blob/master/REST-API.md)
+
+- [MODELOS DE NOTIFICACAO](https://github.com/Getmo-Inc/Docs/blob/master/REST-API.md)
