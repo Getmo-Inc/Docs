@@ -51,9 +51,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
 **Obs 2**.: Você pode facilmente adicionar emojis as suas notificações. Para isso basta usar um teclado emoji no momento da configuração do push.
 
-**Print de Exemplo**
-
-** [AGUARDE] **
+![](../img/ios_simples.jpeg)
 
 ### 2. Notificação com aplicação de banner
 
@@ -93,9 +91,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
 **Obs 2**.: Você pode facilmente adicionar emojis as suas notificações. Para isso basta usar um teclado emoji no momento da configuração do push.
 
-**Print de Exemplo**
-
-** [AGUARDE] **
+![](ios_banner.jpeg)
 
 ### 3. Notificação com aplicação de GIF (animação)
 
@@ -135,9 +131,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
 **Obs 2**.: Você pode facilmente adicionar emojis as suas notificações. Para isso basta usar um teclado emoji no momento da configuração do push.
 
-**Print de Exemplo**
-
-** [AGUARDE] **
+![](https://media.giphy.com/media/xU1efIwaWlKuvCzqDM/giphy.gif)
 
 ### 4. Notificação com aplicação de Audio
 
@@ -177,9 +171,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
 **Obs 2**.: Você pode facilmente adicionar emojis as suas notificações. Para isso basta usar um teclado emoji no momento da configuração do push.
 
-**Print de Exemplo**
-
-** [AGUARDE] **
+![](https://media.giphy.com/media/g0NZKzSrtZI4leyE3C/giphy.gif)
 
 ### 5. Notificação com aplicação de Video
 
@@ -218,9 +210,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
 **Obs 2**.: Você pode facilmente adicionar emojis as suas notificações. Para isso basta usar um teclado emoji no momento da configuração do push.
 
-**Print de Exemplo**
-
-** [AGUARDE] **
+![](https://media.giphy.com/media/xFmAAnVngKTu8WoXIn/giphy.gif)
 
 ### 6. Notificação com aplicação de Carrossel
 
@@ -355,9 +345,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
 **Obs 2**.: Você pode facilmente adicionar emojis as suas notificações. Para isso basta usar um teclado emoji no momento da configuração do push.
 
-**Print de Exemplo**
-
-** [AGUARDE] **
+![](../gif/android_simples.jpeg)
 
 ### 2. Notificação com aplicação de banner
 
@@ -398,9 +386,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
 **Obs 2**.: Você pode facilmente adicionar emojis as suas notificações. Para isso basta usar um teclado emoji no momento da configuração do push.
 
-**Print de Exemplo**
-
-** [AGUARDE] **
+![](../gif/android_banner.jpeg)
 
 ### 3. Notificação com aplicação de GIF (animação)
 
