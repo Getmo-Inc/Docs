@@ -447,7 +447,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
 **Obs 2**.: Você pode facilmente adicionar emojis as suas notificações. Para isso basta usar um teclado emoji no momento da configuração do push.
 
-![](https://media.giphy.com/media/1gWm4PFZckuihHhTb6/giphy.gif)
+![](https://media.giphy.com/media/LwDmkzT48gHbANbPAN/giphy.gif)
 
 ### 7. Cancelamento de Notificação
 
