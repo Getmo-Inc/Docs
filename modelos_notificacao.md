@@ -453,7 +453,7 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 
     ** EM BREVE **
 
-### 8. Notificações Locais
+### 8. Notificações Locais iOS
 
 A SDK permite a utilização de notificações locais originadas por APIs de terceiros.
 
