@@ -452,3 +452,119 @@ Abaixo segue a lista de parâmetros para a configuração da notificação.
 ### 7. Cancelamento de Notificação
 
     ** EM BREVE **
+
+### 8. Notificações Locais
+
+A SDK permite a utilização de notificações locais originadas por APIs de terceiros.
+
+#### Exemplos
+
+**Método no padrão builder montar a notificação:**
+```
+    private func requestPushNotification(_ notification: SmartpushNotification) {
+        let builder  = SmartpushNotificationBuilder()
+        builder.title = notification.title
+        builder.body = notification.body
+        builder.category = notification.category
+        builder.carouselType = notification.carouselType
+        builder.mediaUrl = notification.mediaUrl
+        builder.banners = notification.banners
+        builder.build()
+    }
+```
+
+**Enum para as categorias**
+```
+enum Categorys:String{
+    case PushNormal = "PUSH",
+    PushEmoji = "EMOJI",
+    PushImage = "BANNER",
+    PushGif = "GIF",
+    PushAudio = "AUDIO",
+    PushVideo = "VIDEO",
+    PushCarouselCoverflow = "COVERFLOW",
+    PushCarouselRotary = "ROTARY",
+    PushCarouselCylinder = "CYLINDER",
+    PushCarouselCylinderInverted = "INVERTED" ,
+    PushCarouselLinear = "LINEAR",
+    PushCarouselStack = "TIME_MACHINE",
+    PushCarouselStackInverted = "TIME_MACHINE_INVERTED"
+}
+```
+
+**Push normal:**
+```
+	let notification  = SmartpushNotification()
+	notification.title = "Oferta"
+	notification.body = "Temos algumas ofertas especiais para você"
+	notification.category = "PUSH"
+	requestPushNotification(notification)
+```
+
+**Push emoji:**
+```
+    let notification  = SmartpushNotification()
+    notification.title = "Oferta"
+    notification.body = "Temos algumas ofertas especiais para você 😃"
+    notification.category = Categorys.PushEmoji.rawValue // enum
+    requestPushNotification(notification)
+```
+
+**Imagem:**
+```
+    let notification  = SmartpushNotification()
+    notification.title = "Oferta"
+    notification.body = "Temos algumas ofertas especiais para você"
+    notification.mediaUrl = "http://cdn.getmo.com.br/images/1512note.png"
+    notification.category = Categorys.PushImage.rawValue
+    requestPushNotification(notification)
+```
+
+**Gif:**
+```
+    let notification  = SmartpushNotification()
+    notification.title = "Oferta"
+    notification.body = "Temos algumas ofertas especiais para você"
+    notification.mediaUrl = "https://media.giphy.com/media/qi29MoLjWNPUI/giphy.gif"
+    notification.category = Categorys.PushGif.rawValue
+    requestPushNotification(notification)
+```
+
+**Audio:**
+```
+    let notification  = SmartpushNotification()
+    notification.title = "Oferta"
+    notification.body = "Temos algumas ofertas especiais para você"
+    notification.mediaUrl = "http://www.audiocheck.net/Audio/audiocheck.net_welcome.mp3"
+    notification.category = Categorys.PushAudio.rawValue
+    requestPushNotification(notification)
+```
+
+**Vídeo:**
+```
+    let notification  = SmartpushNotification()
+    notification.title = "Oferta"
+    notification.body = "Temos algumas ofertas especiais para você"
+    notification.mediaUrl = "0S6pHex-KCo" // id do video do YouTube
+    notification.category = Categorys.PushVideo.rawValue
+    requestPushNotification(notification)
+```
+
+**Carroussel:**
+```
+    let banner1 = "http://cdn.getmo.com.br/images/1512note.png"
+    let banner2 = "http://cdn.getmo.com.br/images/1312phone.png"
+    let banner3 = "http://cdn.getmo.com.br/images/2607fog.png"
+    let banner4 = "http://cdn.getmo.com.br/images/1001cafeteira.png"
+    let banner5 = "http://cdn.getmo.com.br/images/0110galax.png"
+    let banner6 = "http://cdn.getmo.com.br/images/2507Tablet.png"
+    let banners = [banner1, banner2, banner3, banner4, banner5, banner6];
+
+    let notification  = SmartpushNotification()
+    notification.title = "Oferta"
+    notification.body = "Temos algumas ofertas especiais para você"
+    notification.banners = banners
+    notification.category = "CARROUSSEL"
+    notification.carouselType = Categorys.PushCarouselCoverflow.rawValue
+    requestPushNotification(notification)
+```
