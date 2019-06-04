@@ -23,13 +23,13 @@ Aqui estão as etapas de alto nível para ter o Universal Links funcionando no s
 
 
 # Configure o seu app entitlements #
-Para registrar seu projeto Xcode para Universal Links, você precisa criar uma App ID no portal de desenvolvedores da Apple e ativar os entitlements adequados. Isto é muito semelhante à configuração exigida para compras no aplicativo.
+Para registrar seu projeto Xcode para Universal Links, você precisa criar uma App ID no portal de desenvolvedores da Apple e ativar os entitlements. Isto é muito semelhante à configuração exigida para push notifications.
 
 Você não pode usar um identificador de aplicativo curinga para Universal Links
 
 Registre o seu aplicativo em developer.apple.com:
 Primeiro, vá até developers.apple.com e faça a autenticacão. Em seguida, clique em “Certificate, Identifiers & Profiles” e depois clique em “Identifiers”.
-![picture](http://cdn.getmo.com.br/images/universal_links/developer_portal.png)
+<img src="http://cdn.getmo.com.br/images/universal_links/developer_portal.png" width="500">
 
 
 
