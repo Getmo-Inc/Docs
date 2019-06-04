@@ -4,7 +4,7 @@
 
 # O que os Universal Links podem fazer? #
 
-"Toda estratégia de marketing em app consiste basicamente em adquirir e reter usuários. Muito investimento é feito em marketing digital com este objetivo, mas você sabe qual canal digital que trás mais resultados, e qual trás menos? Isso é importante para decidir onde intensificar seu investimento e esforços, e quais abandonar. A escolha do canal digital mais apropriado para a sua audiência fará toda a diferença nos seus resultados de aquisição e retenção de usuários. Facebook, Google fornecem informações que auxiliam neste sentido, mas são soluções descentralizadas, e que deveriam ser auditadas, mas e os outros canais como emails, sms, push, in-app message? Como montar uma estratégia de marketing sem informações centralizadas e atualizadas?"
+Toda estratégia de marketing em app consiste basicamente em adquirir e reter usuários. Muito investimento é feito em marketing digital com este objetivo, mas você sabe qual canal digital que trás mais resultados, e qual trás menos? Isso é importante para decidir onde intensificar seu investimento e esforços, e quais abandonar. A escolha do canal digital mais apropriado para a sua audiência fará toda a diferença nos seus resultados de aquisição e retenção de usuários. Facebook, Google fornecem informações que auxiliam neste sentido, mas são soluções descentralizadas, e que deveriam ser auditadas, mas e os outros canais como emails, sms, push, in-app message? Como montar uma estratégia de marketing sem informações centralizadas e atualizadas?
 
 
 # Guia de Integração Universal Link #
