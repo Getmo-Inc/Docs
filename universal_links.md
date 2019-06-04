@@ -2,7 +2,7 @@
 
 É um único link que você pode usar em todos os lugares: em cada plataforma, cada dispositivo e cada loja de aplicativos para direcionar os usuários para a sua aplicação. É um único link, totalmente configurado para conectar-se a sua aplicação vindo de todos os canais (Facebook, Twitter, Gmail, etc) e ser listado em cada portal de busca (Google App Indexing, Bing, Apple Spotlight, etc).
 
-# O que as Universal Links podem fazer? #
+# O que os Universal Links podem fazer? #
 
 "Toda estratégia de marketing em app consiste basicamente em adquirir e reter usuários. Muito investimento é feito em marketing digital com este objetivo, mas você sabe qual canal digital que trás mais resultados, e qual trás menos? Isso é importante para decidir onde intensificar seu investimento e esforços, e quais abandonar. A escolha do canal digital mais apropriado para a sua audiência fará toda a diferença nos seus resultados de aquisição e retenção de usuários. Facebook, Google fornecem informações que auxiliam neste sentido, mas são soluções descentralizadas, e que deveriam ser auditadas, mas e os outros canais como emails, sms, push, in-app message? Como montar uma estratégia de marketing sem informações centralizadas e atualizadas?"
 
