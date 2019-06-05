@@ -18,10 +18,12 @@ Aqui estão as etapas para ter o Universal Links funcionando no seu aplicativo:
    1. Tenha certeza de que o arquivo de entitlements está incluso na compilação
   
 1. Configure o seu website para hospedar o arquivo ‘apple-app-site-association’
-  1. Compre um nome de domínio ou escolha a partir de um já existente
-  1. Adquira uma certificação SSL para o nome de domínio
-  1. Crie o arquivo JSON estruturado ‘apple-app-site-association’
-  1. Assine o arquivo JSON com a certificação SSL
+   1. Compre um nome de domínio ou escolha a partir de um já existente
+   1. Adquira uma certificação SSL para o nome de domínio
+   1. Crie o arquivo JSON estruturado ‘apple-app-site-association’
+   1. Assine o arquivo JSON com a certificação SSL
+   
+ 
 
 # Configure o seu app entitlements #
 Para registrar seu projeto Xcode para Universal Links, você precisa criar uma App ID no portal de desenvolvedores da Apple e ativar os entitlements. Isto é muito semelhante à configuração exigida para push notifications.
