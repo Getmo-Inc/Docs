@@ -1,6 +1,6 @@
 # Universal Links #
 
-É um único link que você pode usar em todos os lugares: em cada plataforma, cada dispositivo e cada loja de aplicativos para direcionar os usuários para a sua aplicação. É um único link, totalmente configurado para conectar-se a sua aplicação vindo de todos os canais (Facebook, Twitter, Gmail, etc) e ser listado em cada portal de busca (Google App Indexing, Bing, Apple Spotlight, etc).
+É um único link que pode ser usado em todos os lugares: em cada plataforma, cada dispositivo e cada loja de aplicativos para direcionar os usuários para a sua aplicação. É um único link, totalmente configurado para conectar-se a sua aplicação vindo de todos os canais (Facebook, Twitter, Gmail, etc) e ser listado em cada portal de busca (Google App Indexing, Bing, Apple Spotlight, etc).
 
 # O que os Universal Links podem fazer? #
 
@@ -8,7 +8,7 @@ Toda estratégia de marketing em app consiste basicamente em adquirir e reter us
 
 
 # Guia de Integração Universal Link #
-Aqui estão as etapas de alto nível para ter o Universal Links funcionando no seu aplicativo:
+Aqui estão as etapas para ter o Universal Links funcionando no seu aplicativo:
 
 1. Configure seu aplicativo para registrar domínios aprovados
 1.1 Registre seu aplicativo no developers.apple.com
@@ -21,16 +21,37 @@ Aqui estão as etapas de alto nível para ter o Universal Links funcionando no s
 
 1.5 Tenha certeza de que o arquivo de entitlements está incluso na compilação
 
+2. Configure o seu website para hospedar o arquivo ‘apple-app-site-association’
+2.1 Compre um nome de domínio ou escolha a partir de um já existente
+
+2.2 Adquira uma certificação SSL para o nome de domínio
+
+2.3 Crie o arquivo JSON estruturado ‘apple-app-site-association’
+
+2.4 Assine o arquivo JSON com a certificação SSL
 
 # Configure o seu app entitlements #
 Para registrar seu projeto Xcode para Universal Links, você precisa criar uma App ID no portal de desenvolvedores da Apple e ativar os entitlements. Isto é muito semelhante à configuração exigida para push notifications.
 
-Você não pode usar um identificador de aplicativo curinga para Universal Links
+Você não pode usar um identificador de aplicativo geral para Universal Links
 
-Registre o seu aplicativo em developer.apple.com:
-Primeiro, vá até developers.apple.com e faça a autenticacão. Em seguida, clique em “Certificate, Identifiers & Profiles” e depois clique em “Identifiers”.
+**Registre o seu aplicativo em developer.apple.com:**
+
+1. Primeiro, vá até developers.apple.com e faça a autenticacão. Em seguida, clique em “Certificate, Identifiers & Profiles” e depois clique em “Identifiers”.
 <img src="http://cdn.getmo.com.br/images/universal_links/developer_portal.png" width="500">
 
+Se você não tem um App Identifier já registado, você vai precisar criar um clicando no sinal de +. Se você tem um, pule para a próxima seção.
+
+Você precisa preencher 2 campos aqui: nome e bundle ID. Para o nome, você, basicamente, coloca o que quiser. Para bundle ID, você vai preencher com o valor do bundle
+
+Essa parte é bastante intuitiva, principalmente depois das últimas atualizações do portal.
+
+2. Ativar ‘Associated Domains’ no seu identifier de aplicativo em developers.apple.com.
+
+3. Ativar ‘Associated Domains’ no seu projeto Xcode.
+
+4. Adicione o domain entitlement.
+<img src="http://cdn.getmo.com.br/images/universal_links/associated_domains.png" width="500">
 
 
 
