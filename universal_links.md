@@ -11,9 +11,9 @@ Toda estratégia de marketing em app consiste basicamente em adquirir e reter us
 Aqui estão as etapas para ter o Universal Links funcionando no seu aplicativo:
 
 1. Configure seu aplicativo para registrar domínios aprovados
-1.1 Registre seu aplicativo no developers.apple.com
+1.1. Registre seu aplicativo no developers.apple.com
 
-1.2 Ative ‘Associated Domains’ no seu identificador de aplicativo
+1.2. Ative ‘Associated Domains’ no seu identificador de aplicativo
 
 1.3 Ative ‘Associated Domain’ no seu projeto Xcode
 
