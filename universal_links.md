@@ -16,6 +16,7 @@ Aqui estão as etapas para ter o Universal Links funcionando no seu aplicativo:
   1. Ative ‘Associated Domain’ no seu projeto Xcode
   1. Adicione o domain entitlement correto
   1 Tenha certeza de que o arquivo de entitlements está incluso na compilação
+  
 1. Configure o seu website para hospedar o arquivo ‘apple-app-site-association’
   1. Compre um nome de domínio ou escolha a partir de um já existente
   1. Adquira uma certificação SSL para o nome de domínio
