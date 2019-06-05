@@ -48,5 +48,32 @@ Essa parte é bastante intuitiva, principalmente depois das últimas atualizaç�
 4. Adicione o domain entitlement.
 <img src="http://cdn.getmo.com.br/images/universal_links/associated_domains.png" width="500">
 
+**Crie seu JSON apple-app-site-association**
+
+Há uma estrutura bem padrão deste arquivo JSON, então basicamente você pode simplesmente copiar esta versão e editar para atender às suas necessidades. Eu irei mostrar onde obter os valores corretos abaixo
+
+```
+{
+    "applinks": {
+        "apps": [],
+        "details": [{
+            "appID": "7GGYTT3FER.br.com.smartpush.ios-smartpush-sample",
+            "paths": [
+                "\/home",
+                "\/generic",
+                "*",
+                "/"                   
+            ]
+        }]
+    }
+}
+```
+No campo appID, você deve juntar o TEAM ID com o APP ID separados por .
+7GGYTT3FER + . + br.com.smartpush.ios-smartpush-sample
+Team ID é: 7GGYTT3FER
+App ID é: br.com.smartpush.ios-smartpush-sample
+
+Salve este arquivo para usar posteriormente.
+
 
 
