@@ -68,8 +68,9 @@ Há uma estrutura bem padrão deste arquivo JSON, então basicamente você pode 
     }
 }
 ```
-No campo appID, você deve juntar o TEAM ID com o APP ID separados por .
-7GGYTT3FER + . + br.com.smartpush.ios-smartpush-sample
+No campo appID, você deve juntar o TEAM ID com o APP ID separados por "."
+
+Exemplo: 7GGYTT3FER + . + br.com.smartpush.ios-smartpush-sample
 Team ID é: 7GGYTT3FER
 App ID é: br.com.smartpush.ios-smartpush-sample
 
