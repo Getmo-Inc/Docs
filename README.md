@@ -9,3 +9,5 @@
 - [MODELOS DE NOTIFICACAO](https://github.com/Getmo-Inc/Docs/blob/master/modelos_notificacao.md)
 
 - [Universal Links](https://github.com/Getmo-Inc/Docs/blob/master/universal_links.md)
+
+- [Smartpromo + React Native](https://github.com/Getmo-Inc/Docs/blob/master/smartpromo+reactnative.md)
