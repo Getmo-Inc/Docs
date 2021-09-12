@@ -279,7 +279,7 @@ Veja um exemplo do arquivo de implementação que expoem o acionamento da SDK Sm
 @implementation RCTSmartPromoMod
 RCT_EXPORT_MODULE(SmartPromo);
 
-RCT_EXPORT_METHOD(start:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret)
+RCT_EXPORT_METHOD(start:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
 {
     SmartPromo *sp = [[SmartPromo alloc] init: campaignID];
     [sp setupAccessKey:key andSecretKey:secret];
