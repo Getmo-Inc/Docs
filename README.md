@@ -7,10 +7,13 @@
 
 - [REST-API](https://github.com/Getmo-Inc/Docs/blob/master/REST-API.md)
 
-- [MODELOS DE NOTIFICACAO](https://github.com/Getmo-Inc/Docs/blob/master/modelos_notificacao.md)
+- [Modelos de notificação](https://github.com/Getmo-Inc/Docs/blob/master/modelos_notificacao.md)
 
 - [Universal Links](https://github.com/Getmo-Inc/Docs/blob/master/universal_links.md)
 
+- [Integração React Native](https://github.com/Getmo-Inc/Docs/blob/master/smartpush_reactnative.md)
+
+- [Manual de uso do painel](https://github.com/Getmo-Inc/Docs/blob/master/smartpush_manual_painel.md)
 
 ## SMARTPROMO - Plataforma digital de marketing promocional
 - [Painel Smartpromo](https://github.com/Getmo-Inc/Docs/blob/master/smartpromo.md)
