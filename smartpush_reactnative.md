@@ -51,11 +51,11 @@ public class Smartpush extends ReactContextBaseJavaModule {
         return "Smartpush";
     }
 
-    @ReactMethod
-    public void subscribe( ) {
-        // Register at Smartpush!
-        Smartpush.subscribe( getApplicationContext() );
-    }
+//    @ReactMethod
+//    public void subscribe( ) {
+//        // Register at Smartpush!
+//        Smartpush.subscribe( getApplicationContext() );
+//    }
                                                            
     @ReactMethod
     public void setTag( String tagName, String tagValue ) {
@@ -195,26 +195,17 @@ Com NativeModules, o uso da SDK Smartpush é bem simples, veja alguns exemplos d
     // Acionamento
     NativeModules.Smartpush.geo( -30.1327123, -51.2318003 );
 
-### Atualizando uma tag
+### Salvando/atualizando uma tag
  
     // Acionamento do registro de um valor
     NativeModules.Smartpush.setTag( 'USER_ID', 'AB12CD34EF56' );
 
-    // Acionamento da exclusão do registro
-    NativeModules.Smartpush.delTag( 'USER_ID' );
 
 > __Importante:__ Não esqueça de criar a tag no painel da plataforma Smartpush antes de usa-la.
 > 
 
-### Acessando a caixa de entrada de notificações
 
-    var campaign = '[SEU_ID_DA_CAMPANHA]';
-    var key      = '[SUA_KEY]';
-    var secret   = '[SUA_SECRET]';
-       
-    // Acionamento
-    NativeModules.Smartpush.start(campaign, key, secret, config);
-
+### Prevenindo o ofuscamento de código 
 
 proguard-project
 
