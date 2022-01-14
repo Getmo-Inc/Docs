@@ -58,23 +58,16 @@ public class Smartpush extends ReactContextBaseJavaModule {
     }
                                                            
     @ReactMethod
-    public void setTag( ) {
-        // Register at Smartpush!
-        Smartpush.subscribe( getApplicationContext() );
+    public void setTag( String tagName, String tagValue ) {
+        // Send a tag value!
+        Smartpush.setTag( getApplicationContext(), tagName, tagValue );
     }                                                           
 
-    @ReactMethod
-    public void delTag( ) {
-        // Register at Smartpush!
-        Smartpush.subscribe( getApplicationContext() );
-    }
-                                                           
     @ReactMethod
     public void geo( double lat, double lng ) {
-        // Register at Smartpush!
-        Smartpush.subscribe( getApplicationContext() );
-    }                                                           
-
+        // Send a geo point!
+        Smartpush.nearestZone( getApplicationContext(), lat, lng );
+    }
 
 }
 ```
