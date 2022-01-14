@@ -18,7 +18,7 @@ Apresentamos, a seguir, alguns links que foram utilizados como base na construç
         
 # Configuração Módulo Android
 
-__Etapa 1.__ Siga a documentação da biblioteca Smartpush Android disponível [aqui](https://github.com/Getmo-Inc/smartpromo-android) e configure a sdk Smartpush no seu projeto. 
+__Etapa 1.__ Siga a documentação da biblioteca Smartpush Android disponível [aqui](https://github.com/Getmo-Inc/android-smartpush-lib) e configure a sdk Smartpush no seu projeto. 
 
 > __Importante:__ Não esqueça de atualizar o seu projeto para baixar as dependências.
 
