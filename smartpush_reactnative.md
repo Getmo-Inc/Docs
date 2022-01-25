@@ -120,7 +120,7 @@ Pronto, módulo android concluido!
 
 # Configuração do módulo iOS
 
-__Etapa 1.__ Siga a documentação da biblioteca Smartpush iOS disponível [aqui](https://github.com/Getmo-Inc/smartpromo-android) e configure a sdk Smartpush no seu projeto. 
+__Etapa 1.__ Siga a documentação da biblioteca Smartpush iOS disponível [aqui](https://github.com/Getmo-Inc/SmartpushSDKiOS) e configure a sdk Smartpush no seu projeto. 
 
 
 __Etapa 2.__ Agora, abra o XCode e crie 2 novos arquivos dentro da pasta /iOS
