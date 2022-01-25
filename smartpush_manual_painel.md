@@ -34,7 +34,7 @@ Para acessar o __dashboard__ abra o menu lateral, então localize e clique no it
 
 ## Galeria de Imagens
 
-A __galeria de imagens__ simplifica o processo de publicação dos banners para você utilizar nos push.
+A __galeria de imagens__ simplifica o processo de publicação das imagens dos banners para você utilizar nos push.
 
 Para acessar a __galeria de imagens__ abra o menu lateral, então localize e clique no item 
 
@@ -50,11 +50,16 @@ Após o carregamento das imagens ser concluido você verá o preview da imagem e
 
 > __Importante__: As imagens na galeria ficam disponíveis por 7 dias. Após esse período as imagens são apagadas automaticamente. 
 > 
-> Se precisar de períodos maiores de disponibilidade entre em contato conosco para a contratação, ou considere armazenar as imagens em uma cdn própria. 
+> Se precisar de períodos maiores de disponibilidade entre em [contato](mailto:business@getmo.com.br) conosco para a contratação, ou considere armazenar as imagens em uma cdn própria. 
 
 ## Singlelink
 
-__Singlelink__ é um conjunto de soluções para a configuração de links. Você pode criar links encurtados, e tambem links inteligentes que modificam seu comportamento a partir da origem da navegação.
+__Singlelink__ é um conjunto de soluções para a configuração de links. Com o **Singlelink** você pode: 
+
+* Criar **links encurtados** utilizando domínios personalizados, 
+* Criar **links inteligentes** que modificam seu comportamento a partir da origem da navegação,
+* Criar **QRCodes** configuráveis, e
+* Obter **métricas** de acesso.
 
 Para acessar as funcionalidades do __Singlelink__ abra o menu lateral, então localize e clique no item 
 
@@ -64,18 +69,23 @@ Você terá a opção de configurar um __shortlink__ ou um __deeplink__.
 
 ### Shortlink
 
-São links encurtados. Você pode utilizar um dominio personalizado, ou não. Os links encurtados são editáveis, ou seja você pode alterar a URL de destino a qualquer momento.  além disso fornecemos informações sobre cliques no link encurtado como:
+São links encurtados. Você pode utilizar um dominio personalizado, ou não. Os links encurtados são editáveis, ou seja você pode alterar a URL de destino a qualquer momento. Você também pode gerar o QRCode do link para simplificar a distribuição.  
+
+> Você pode gerar o **QRCode** de qualquer shortlink apenas adicionando **/qr** ao final da URL. 
+>
+> Se precisar redimensionar a imagem do QRCode basta adicionar um parametro de tamanho, da seguinte forma: **/qr?w=[TAMANHO]**
+
+Além disso, é possivel configurar parâmetros e controlar se o trafego gerado pelo link veio de uma campanha especifica veiculada por __email__, __sms__, ou qualquer outra origem que você definir. Fornecemos todas as informações sobre cliques no link encurtado. Veja alguns exemplos:
 
 - Quantidade de cliques
 - Plataformas de origem do clique
-
-E ainda é possivel configurar parâmetros e controlar se o trafego gerado pelo link veio de uma campanha especifica veiculada por __email__, __sms__, ou qualquer outra origem que você definir.
+- Campanha de origem do clique
 
 ### Deeplink
 
 São links inteligentes que modificam seu comportamento dependendo da origem da navegação. 
 
-Utilizando um __deeplink__ você pode fornecer um link único aos seus usuários que irá atender a todos os cenários a seguir:
+Utilizando um __deeplink__ você pode fornecer um link único que irá atender a todos os cenários a seguir:
 
 - Navegação iniciada a partir de um browser em um computador, o link irá direcionar o usuário para uma landing page.
 - Navegação iniciada em um dispositivo android em que a sua app não está instalada, o link irá direcionar o usuário para a página de detalhes do seu aplicativo na Google Play. 
