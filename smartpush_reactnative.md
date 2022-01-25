@@ -153,7 +153,7 @@ Neste arquivo vamos implementar os métodos da SDK Smartpromo que vamos expor pa
 ```
 // RCTSmartpushMod.m
 #import "RCTSmartpushMod.h"
-#import "Smartpush/Smartpush.h"
+#import "SmartpushSDK/SmartpushSDK.h"
 #import <React/RCTUtils.h>
 #import <UIKit/UIKit.h>
 #import <dispatch/dispatch.h>
@@ -161,15 +161,14 @@ Neste arquivo vamos implementar os métodos da SDK Smartpromo que vamos expor pa
 @implementation RCTSmartpushMod
 RCT_EXPORT_MODULE(Smartpush);
 
-RCT_EXPORT_METHOD(start:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
+RCT_EXPORT_METHOD(setTag:(NSString *)value forTag:(NSString *)key;)
 {
-    SmartPromo *sp = [[SmartPromo alloc] init: campaignID];
-    [sp setupAccessKey:key andSecretKey:secret];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *vc = RCTPresentedViewController();
-        [sp go:vc];
-    });
+    [SmartpushSDK.sharedInstance setString:value forTag:key];
+}
+
+RCT_EXPORT_METHOD(geo:(double)latitude andLongitude:(double)longitude)
+{
+    [SmartpushSDK.sharedInstance nearestZoneWithLatitude:latitude andLongitude:longitude];
 }
 
 @end
