@@ -56,6 +56,17 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
         smartPromo.go(getCurrentActivity());
     }
 
+    @ReactMethod
+    public void startScanner(String campaignID, String accessKey, String secretKey, ReadableMap config) {
+        SmartPromo smartPromo = new SmartPromo(campaignID);
+        smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
+
+        smartPromo = parseCampaignColor(smartPromo, config);
+        smartPromo = parseCampaignConsumer(smartPromo, config);
+
+        smartPromo.goScanner(getCurrentActivity());
+    }
+                                                                   
     private SmartPromo parseCampaignColor( SmartPromo smartPromo, ReadableMap config ) {
         if (config.hasKey( "color")) {
             String colorHex = config.getString("color");
@@ -290,6 +301,20 @@ RCT_EXPORT_METHOD(startCampaign:(NSString *)campaignID key:(NSString *)key secre
     dispatch_async(dispatch_get_main_queue(), ^{
         UIViewController *vc = RCTPresentedViewController();
         [sp go:vc];
+    });
+}
+
+RCT_EXPORT_METHOD(startScanner:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
+{
+    SmartPromo *sp = [[SmartPromo alloc] init: campaignID];
+    [sp setupAccessKey:key andSecretKey:secret];
+    
+    [self parseCampaignColor:sp config:config];
+    [self parseCampaignConsumer:sp config:config];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIViewController *vc = RCTPresentedViewController();
+        [sp goScanner:vc];
     });
 }
 
