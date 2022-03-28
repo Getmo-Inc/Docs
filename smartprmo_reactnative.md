@@ -46,7 +46,7 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void start(String campaignID, String accessKey, String secretKey, ReadableMap config) {
+    public void startCampaign(String campaignID, String accessKey, String secretKey, ReadableMap config) {
         SmartPromo smartPromo = new SmartPromo(campaignID);
         smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
 
@@ -279,7 +279,7 @@ Veja um exemplo do arquivo de implementação que expoem o acionamento da SDK Sm
 @implementation RCTSmartPromoMod
 RCT_EXPORT_MODULE(SmartPromo);
 
-RCT_EXPORT_METHOD(start:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
+RCT_EXPORT_METHOD(startCampaign:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
 {
     SmartPromo *sp = [[SmartPromo alloc] init: campaignID];
     [sp setupAccessKey:key andSecretKey:secret];
@@ -406,6 +406,8 @@ Depois de seguir os passos do Android e do iOS, basta importar o NativeModules.
 
 Com NativeModules, basta usar da seguinte maneira.
 
+### Iniciando a SDK no modo campanha:
+
      
     var campaign = '[SEU_ID_DA_CAMPANHA]';
     var key      = '[SUA_KEY]';
@@ -430,7 +432,22 @@ Com NativeModules, basta usar da seguinte maneira.
     
        
     // Acionamento
-    NativeModules.SmartPromo.start(campaign, key, secret, config);
+    NativeModules.SmartPromo.startCampaign(campaign, key, secret, config);
+
+> __campaignID__, __accessKey__, e __secretKey__ serão fornecidos pelo time da __Getmo__ para serem configurados no seu projeto.
+> 
+
+### Iniciando a SDK no modo Scanner de notas:
+    var campaign = '[SEU_ID_DA_CAMPANHA]';
+    var key      = '[SUA_KEY]';
+    var secret   = '[SUA_SECRET]';
+    
+    var config = {};
+    config.color = '#0000CC'
+    config.cpf = '90134602080';
+       
+    // Acionamento
+    NativeModules.SmartPromo.startScanner(campaign, key, secret, config);
 
 > __campaignID__, __accessKey__, e __secretKey__ serão fornecidos pelo time da __Getmo__ para serem configurados no seu projeto.
 > 
