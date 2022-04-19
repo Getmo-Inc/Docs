@@ -57,14 +57,13 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void startScanner(String campaignID, String accessKey, String secretKey, ReadableMap config) {
+    public void startScanner(String campaignID, String accessKey, String secretKey, String consumerID, ReadableMap config) {
         SmartPromo smartPromo = new SmartPromo(campaignID);
         smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
 
         smartPromo = parseCampaignColor(smartPromo, config);
-        smartPromo = parseCampaignConsumer(smartPromo, config);
 
-        smartPromo.goScanner(getCurrentActivity());
+        smartPromo.scan(consumerID, getCurrentActivity());
     }
                                                                    
     private SmartPromo parseCampaignColor( SmartPromo smartPromo, ReadableMap config ) {
@@ -211,7 +210,7 @@ A seguir apresentamos os passos necessários para integrar a SDK iOS da soluçã
 __Passo 1.__ É necessário configurar a dependência da sdk Smartpromo no seu projeto, para isso altere o arquivo *Podfile* e insira a linha a seguir. 
 
 ```
-pod 'SmartPromo'
+pod 'SmartPromo', '1.8.1'
 ```
 
 A seguir um arquivo Podfile de exemplo
@@ -304,17 +303,16 @@ RCT_EXPORT_METHOD(startCampaign:(NSString *)campaignID key:(NSString *)key secre
     });
 }
 
-RCT_EXPORT_METHOD(startScanner:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
+RCT_EXPORT_METHOD(startScanner:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret consumerID:(NSString *)consumerID config:(NSDictionary *)config)
 {
     SmartPromo *sp = [[SmartPromo alloc] init: campaignID];
     [sp setupAccessKey:key andSecretKey:secret];
     
     [self parseCampaignColor:sp config:config];
-    [self parseCampaignConsumer:sp config:config];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         UIViewController *vc = RCTPresentedViewController();
-        [sp goScanner:vc];
+        [smartPromo scanWithConsumerID:consumerID above:vc];
     });
 }
 
@@ -463,16 +461,16 @@ Com NativeModules, basta usar da seguinte maneira.
 > 
 
 ### Iniciando a SDK no modo Scanner de notas:
-    var campaign = '[SEU_ID_DA_CAMPANHA]';
-    var key      = '[SUA_KEY]';
-    var secret   = '[SUA_SECRET]';
+    var campaign   = '[SEU_ID_DA_CAMPANHA]';
+    var key        = '[SUA_KEY]';
+    var secret     = '[SUA_SECRET]';
+    var consumerID = '[IDENTIFICADOR_DO_CONSUMIDOR]';
     
     var config = {};
     config.color = '#0000CC'
-    config.cpf = '90134602080';
        
     // Acionamento
-    NativeModules.SmartPromo.startScanner(campaign, key, secret, config);
+    NativeModules.SmartPromo.startScanner(campaign, key, secret, consumerID, config);
 
 > __campaignID__, __accessKey__, e __secretKey__ serão fornecidos pelo time da __Getmo__ para serem configurados no seu projeto.
 > 
