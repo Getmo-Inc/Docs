@@ -44,7 +44,7 @@ E ainda muito mais!
 
 ## Quarentena
 
-A quarentena é a área onde notas fiscais que sofreram criticas do sistema Smartpromo, mas que não foram rejeitadas, ficam aguardando por uma revisão manual. 
+A quarentena é a área onde notas fiscais que sofreram criticas do sistema Smartpromo, mas que não foram rejeitadas, e ficam aguardando por uma revisão manual. 
 
 Alguns exemplos de motivos para notas fiscais ficarem retidas na quarentena são:
 
@@ -61,6 +61,8 @@ Para acessar a quarentena de notas fiscais acesse o menu lateral e clique no ite
 ![](img/smartpromo_quarentena_menu.png)
 
 Na quarentena você tem acesso a todas as informações da nota fiscais, inclusive do motivo pelo qual uma nota fiscal foi marcada para revisão.
+
+> __Dica__: Clicando no CNPJ do emitente da nota fiscal será aberto o site da Receita Federal para que você possa consultar informações a respeito daquele CNPJ e assim decidir se aprova ou não aquela nota fiscal. 
 
 ![](img/smartpromo_quarentena_lista.png)
 
@@ -87,9 +89,9 @@ Na gestão de consumidores você pode verificar informações vinculadas a cada 
 * Saldos para resgate de cupons, brindes, etc
 * Dados pessoais
 * Notas fiscais enviadas e seus status
-* Cupons
-* Brindes
-* Prêmios instantâneos
+* Informações sobre Cupons gerados
+* Informações sobre Brindes e a realização da baixa 
+* Informações sobre os Prêmios instantâneos e a realização da baixa
 
 ![](img/smartpromo_consumidores_lista.png)
 
@@ -104,6 +106,10 @@ Você pode acessar e atualizar os dados pessoais de qualquer consumidor.
 Você pode acessar e avaliar de uma forma muito simples todas as notas fiscais enviadas por qualquer consumidor.
 
 ![](img/smartpromo_consumidores_notas_fiscais.png)
+
+__Dica__: É possível corrigir o valor de uma nota fiscal quando ela foi registrada com valor incorreto no processo de transcrição.
+
+![](img/smartpromo_consumidores_notas_fiscais_ajuste_valor.png)
 
 #### Cupons
 
@@ -122,6 +128,12 @@ Para registrar a entrega de um brinde é só clicar no botão com o ícone de um
 > __Importante:__ O registro da entrega de um brinde não pode ser desfeita.
 
 ![](img/smartpromo_consumidores_brindes.png)
+
+Existe uma campanha especial de brindes chamada de __Spend, Pay and Get__, nesta modalidade você pode dar a baixa no pagamento e posteriormente na entrega do brinde.
+
+Nesta modalidade você pode escolher o brinde, a modalidade de pagamento e registrar o pagamento e entrega.
+
+![](img/smartpromo_consumidores_brindes_com_pagto.png)
 
 > Algumas campanhas não geram brindes, neste caso essa listagem estará vazia.
 
@@ -165,6 +177,9 @@ Você tambem pode ter acesso a mais informações e ações sobre a nota fiscal,
 
 ![](img/smartpromo_notas_detalhe.png)
 
+__Dica__: É possível corrigir o valor de uma nota fiscal quando ela foi registrada com valor incorreto no processo de transcrição.
+
+![](img/smartpromo_notas_detalhe_ajuste_valor.png)
 
 ## Cupons
 
