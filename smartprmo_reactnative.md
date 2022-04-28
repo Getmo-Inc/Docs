@@ -312,7 +312,7 @@ RCT_EXPORT_METHOD(startScanner:(NSString *)campaignID key:(NSString *)key secret
     
     dispatch_async(dispatch_get_main_queue(), ^{
         UIViewController *vc = RCTPresentedViewController();
-        [smartPromo scanWithConsumerID:consumerID above:vc];
+        [sp scanWithConsumerID:consumerID above:vc];
     });
 }
 
