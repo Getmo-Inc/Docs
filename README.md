@@ -20,4 +20,4 @@
 
 - [Smartpromo + React Native](https://github.com/Getmo-Inc/Docs/blob/master/smartprmo_reactnative.md)
 
-- [Smartpromo + Flutter] (https://github.com/Getmo-Inc/smartpromo-flutter)
+- [Smartpromo + Flutter](https://github.com/Getmo-Inc/smartpromo-flutter)
