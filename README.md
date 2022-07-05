@@ -19,3 +19,5 @@
 - [Painel Smartpromo](https://github.com/Getmo-Inc/Docs/blob/master/smartpromo.md)
 
 - [Smartpromo + React Native](https://github.com/Getmo-Inc/Docs/blob/master/smartprmo_reactnative.md)
+
+- [Smartpromo + Flutter] (https://github.com/Getmo-Inc/smartpromo-flutter)
