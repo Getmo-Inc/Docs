@@ -62,7 +62,7 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
         smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
 
         smartPromo = parseCampaignColor(smartPromo, config);
-
+        smartPromo.setIsHomolog(config.getBoolean("isHomolog"))
         smartPromo.scan(consumerID, getCurrentActivity());
     }
                                                                    
@@ -452,7 +452,9 @@ Com NativeModules, basta usar da seguinte maneira.
     config.telefone = '555000552';
     config.aniversario = '1973-01-04';
     config.endereco = 'Rua sem nome;100;apto 101;ipanema;Porto Alegre;RS;90500000';
-    
+
+    // Caso queira utilizar o ambiente de homologação
+    config.isHomolog = true;
        
     // Acionamento
     NativeModules.SmartPromo.startCampaign(campaign, key, secret, config);
@@ -468,7 +470,10 @@ Com NativeModules, basta usar da seguinte maneira.
     
     var config = {};
     config.color = '#0000CC'
-       
+    
+    // Caso queira utilizar o ambiente de homologação
+    config.isHomolog = true;
+    
     // Acionamento
     NativeModules.SmartPromo.startScanner(campaign, key, secret, consumerID, config);
 
