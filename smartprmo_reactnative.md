@@ -210,7 +210,7 @@ A seguir apresentamos os passos necessários para integrar a SDK iOS da soluçã
 __Passo 1.__ É necessário configurar a dependência da sdk Smartpromo no seu projeto, para isso altere o arquivo *Podfile* e insira a linha a seguir. 
 
 ```
-pod 'SmartPromo', '1.9'
+pod 'SmartPromo', '1.10'
 ```
 
 A seguir um arquivo Podfile de exemplo
@@ -307,6 +307,7 @@ RCT_EXPORT_METHOD(startScanner:(NSString *)campaignID key:(NSString *)key secret
 {
     SmartPromo *sp = [[SmartPromo alloc] init: campaignID];
     [sp setupAccessKey:key andSecretKey:secret];
+    [sp setIsHomolog:[[config valueForKey:@"isHomolog"] boolValue]];
     
     [self parseCampaignColor:sp config:config];
     
