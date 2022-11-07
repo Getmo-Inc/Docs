@@ -33,6 +33,12 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import br.com.getmo.smartpromo.SmartPromo;
+import br.com.getmo.smartpromo.SmartPromo
+import br.com.getmo.smartpromo.models.FSPAddress
+import br.com.getmo.smartpromo.models.FSPConsumer
+import br.com.getmo.smartpromo.models.FSPGenre
+import java.text.SimpleDateFormat
+import android.graphics.Color
 
 public class SmartPromoStarter extends ReactContextBaseJavaModule {
     SmartPromoStarter(ReactApplicationContext context) {
