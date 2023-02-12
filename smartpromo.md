@@ -203,13 +203,22 @@ Você pode criar pesquisas de satisfação (NPS) e/ou opinião.
 
 > Cada campanha suporta, por padrão, apenas uma pesquisa. Se quiser realizar mais de uma entre em contato com um de nossos consultores para que te auxiliem com isso.
 
-A pesquisa é totalmente configurável. Você pode definir: 
+A pesquisa é totalmente configurável e ela é dividia por páginas, sendo que cada página pode ser dividida por seções. Em cada página você pode definir: 
 
-* O __título__ para a pesquisa 
-* A __mensagem__ com o convite para o consumidor participar
+* O __título__ da página
+* A __mensagem__ da página
+* Para a primeira página sem perguntas, uma __animação__
 * O texto de cada um dos __botões__ de ação
-* A __mensagem__ na finalização da pesquisa
-* As __perguntas__ da pesquisa
+
+Em cada seção você pode definir:
+* O __título__ da seção
+* As __perguntas__ da seção
+
+
+| | | 
+| --- | --- |
+| ![survey_1](https://user-images.githubusercontent.com/2761454/218336407-a9a32e00-49d4-4935-974d-3a3241d6d66e.png) | ![survey_2](https://user-images.githubusercontent.com/2761454/218336409-9a528760-9512-4510-8332-578ce7c44119.png) |
+
 
 A __SDK__ do Smartpromo sempre tentará alertar os consumidores sobre uma pesquisa. Isso quer dizer que a pesquisa sempre terá prioridade de ser apresentada ao consumidor, mesmo que ocorram outras situações que a SDK do Smartpromo tenta alertar o consumidor, como por exemplo quando o consumidor tem direito a um brinde ou a concorrer a um prêmio instantâneo. A ordem de prioridade é:
 
@@ -219,93 +228,162 @@ Veja um exemplo:
 
 ```json
 {
-	"title": "Pesquisa de satisfação",
-	"message": "É rápida e vai nos ajudar a aprimorar nossos serviços, bora participar?",
-	"questions": [],
-	"sent_message": "Muito obrigado por ter participado da nossa pesquisa.",
-	"negative_button_title": "Não tenho interesse!",
-	"positive_button_title": "Participar"
+  "pages": [
+    {
+      "message": {
+        "title": "Pesquisa de satisfação",
+        "body": "É rápida e vai nos ajudar a aprimorar nossos serviços, bora participar?",
+        "primary_action": "Participar",
+        "secondary_action": "Não tenho interesse!"
+      }
+    },
+    {
+      "message": {
+        "title": "Página 1 de 2",
+        "primary_action": "Próximo"
+      },
+      "sections": [
+        {
+          "title": "Título da seção 1",
+          "questions": []
+        },
+        {
+          "title": "Título da seção 2",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "message": {
+        "title": "Página 2 de 2",
+        "primary_action": "Concluir"
+      },
+      "sections": [
+        {
+          "title": "Título da seção 1",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "message": {
+        "title": "Enviado!",
+        "body": "Muito obrigado por ter participado da nossa pesquisa.",
+        "primary_action": "Fechar"
+      }
+    }
+  ]
 }
 ```
 
-### Perguntas do tipo NPS
+### Tipos de perguntas
 
+Existe uma variedade de tipos de perguntas que podem ser criadas, porém todas elas tem esses recursos:
+* O __título__ da pergunta (opcional)
+* Uma __resposta__ pré preenchida (opcional)
+* Uma __resposta obrigatória__, onde o botão de avançar da página fica bloqueado até que o usuário acerte a resposta (Opcional)
+* Uma __imagem__ (Opcional)
+
+Veja um exemplo:
+```json
+{
+  "title": "Pergunta com escolha múltipla horizontal com imagem?",
+  "answer": ["3"],
+  "required_answer": ["1"],
+  "image": "https://imagem.png"
+}
+```
+
+#### Perguntas se seleção única horizontal
+
+Esse tipo de pergunta é muito útil para criar uma pergunta NPS.
 Um dos principais indicadores de experiência do consumidor é o NPS (Net Promoter Score). Crie uma ou mais perguntas neste estilo em uma pesquisa no Smartpromo e entenda o grau de satisfação do seu consumidor com seus produtos e/ou serviços.
 
+Veja um exemplo:  
+
+![single](https://user-images.githubusercontent.com/2761454/218342033-63bc6a55-7919-4325-baa4-ae6a8dfb4d8f.png)
 ```json
-	{
-		"options": ["1", "2", "3", "4", "5"],
-		"option_answer": "5",
-		"option_question": "Qual a chance de você indicar o shopping para seus amigos?",
-		"free_text_answer": "",
-		"free_text_question": "Conte mais"
-	}
+{
+  "type": "SINGLE_TOGGLE",
+  "options": ["1", "2", "3", "4", "5"]
+}
 ```
 
-> Uma pergunta NPS pode ter, ou não, uma segunda pergunta com um campo de edição livre para que o consumidor forneça mais informações.
+#### Perguntas de seleção múltipla horizontal
 
-### Perguntas do tipo fechadas
+Utilizando o mesmo componente anterior, porém agora com a possíbilidade de multiplas escolhas.
 
-Você pode criar uma ou mais perguntas fechadas em uma pesquisa no Smartpromo.
+Veja um exemplo:  
 
+![multipla_](https://user-images.githubusercontent.com/2761454/218342080-371e842e-6cb3-473c-b620-9f1fdb1555c3.png)
 ```json
-	{
-		"options": ["Sim", "Não"],
-		"option_answer": "",
-		"option_question": "Você encontrou o produto que estava procurando?",
-		"free_text_answer": null,
-		"free_text_question": null
-	}
+{
+  "type": "MULTI_TOGGLE",
+  "options": ["1", "2", "3", "4", "5"]
+}
 ```
 
-> Você também pode adicionar, ou não, uma segunda pergunta com um campo de edição livre para que o consumidor forneça mais informações.
+#### Perguntas de seleção única vertical
 
-### Perguntas do tipo abertas
+Similar com a primeira opção, porém agora permitindo uma quantidade de texto maior.
 
-Você pode criar uma ou mais perguntas abertas em uma pesquisa no Smartpromo. Perguntas abertas são perguntas em que você dá a oportunidade do consumidor contar sobre alguma experiência fornecendo um feedback.
+Veja um exemplo:   
 
+![radio](https://user-images.githubusercontent.com/2761454/218342145-03735735-ec48-4a9a-83e7-fbc1f14d64a5.png)
 ```json
-	{
-		"options": null,
-		"option_answer": null,
-		"option_question": null,
-		"free_text_answer": "",
-		"free_text_question": "Qual o seu sonho?"
-	}
+{
+  "type": "SINGLE",
+  "options": ["Não", "Sim"]
+}
 ```
 
-A seguir veja um exemplo completo, e se ficou com alguma dúvida, não se preocupe, nossos consultores estão sempre a disposição para auxiliar.
+#### Perguntas de seleção múltipla vertical
 
-### Exemplo completo
- 
+Similar com a opção horizontal, porém agora permitindo uma quantidade de texto maior.
+
+Veja um exemplo:   
+
+![checkbox](https://user-images.githubusercontent.com/2761454/218342228-c1ed9ae1-6cbe-4763-99b8-46ba3e530549.png)
+```json
+{
+  "type": "MULTI",
+  "options": ["Email", "Telefone", "SMS"]
+}
+```
+
+#### Perguntas de verdadeiro ou falso
+
+Essa outra opção de pergunta pode ser usada para criar perguntas onde o usuário precisa aceitar algo, como um termo.
+
+
+Veja um exemplo:   
+
+![boolean](https://user-images.githubusercontent.com/2761454/218342314-a5b39918-fd98-4daf-8038-7f8fd1749e51.png)
 
 ```json
 {
-	"title": "Pesquisa de satisfação",
-	"message": "É rápida e vai nos ajudar a aprimorar nossos serviços, bora participar?",
-	"questions": [{
-		"options": ["1", "2", "3", "4", "5"],
-		"option_answer": "5",
-		"option_question": "Qual a chance de você indicar o shopping para seus amigos?",
-		"free_text_answer": "",
-		"free_text_question": "Conte mais"
-	}, {
-		"options": ["Sim", "Não"],
-		"option_answer": "",
-		"option_question": "Você encontrou o produto que estava procurando?",
-		"free_text_answer": null,
-		"free_text_question": null
-	}, {
-		"options": null,
-		"option_answer": null,
-		"option_question": null,
-		"free_text_answer": "",
-		"free_text_question": "Qual o seu sonho?"
-	}],
-	"sent_message": "Muito obrigado por ter participado da nossa pesquisa.",
-	"negative_button_title": "Não tenho interesse!",
-	"positive_button_title": "Participar"
+  "type": "BOOLEAN",
+  "title": "Pergunta com apenas Verdadeiro ou Falso como resposta e <a href=\"https://link.com\">link</a>?"
 }
 ```
+
+
+#### Perguntas de texto livre
+
+Caso o que você precise seja algo mais dinâmico, temos a opção de perguntas de texto livre
+
+Veja um exemplo:  
+
+![text](https://user-images.githubusercontent.com/2761454/218342374-d25687ac-1cf8-43fa-b103-e64005b4dd88.png)
+
+
+```json
+{
+  "type": "TEXT"
+}
+```
+  
+    
+    
 
 # Agora, boa campanha promocional com Smartpromo!
