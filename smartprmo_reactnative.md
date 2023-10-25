@@ -53,23 +53,39 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startCampaign(String campaignID, String accessKey, String secretKey, ReadableMap config) {
+        SmartPromo smartPromo = new SmartPromo();
+        smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
+
+        smartPromo = parseCampaignColor(smartPromo, config);
+        smartPromo = parseCampaignConsumer(smartPromo, config);
+        smartPromo.setIsHomolog(config.getBoolean("isHomolog"))
+        smartPromo.setMetadata(config.getString("metadata"))
+
+        smartPromo.go(campaignID, getCurrentActivity());
+    }
+
+    @ReactMethod
+    public void startMultiCampaigns(String headnote, String title, String message, String accessKey, String secretKey, ReadableMap config) {
         SmartPromo smartPromo = new SmartPromo(campaignID);
         smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
 
         smartPromo = parseCampaignColor(smartPromo, config);
         smartPromo = parseCampaignConsumer(smartPromo, config);
+        smartPromo.setIsHomolog(config.getBoolean("isHomolog"))
+        smartPromo.setMetadata(config.getString("metadata"))
 
-        smartPromo.go(getCurrentActivity());
+        smartPromo.goMulti(headnote, title, message, getCurrentActivity());
     }
 
     @ReactMethod
     public void startScanner(String campaignID, String accessKey, String secretKey, String consumerID, ReadableMap config) {
-        SmartPromo smartPromo = new SmartPromo(campaignID);
+        SmartPromo smartPromo = new SmartPromo();
         smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
 
         smartPromo = parseCampaignColor(smartPromo, config);
         smartPromo.setIsHomolog(config.getBoolean("isHomolog"))
-        smartPromo.scan(consumerID, getCurrentActivity());
+        smartPromo.setMetadata(config.getString("metadata"))
+        smartPromo.scan(campaignID, consumerID, getCurrentActivity());
     }
                                                                    
     private SmartPromo parseCampaignColor( SmartPromo smartPromo, ReadableMap config ) {
@@ -297,29 +313,48 @@ RCT_EXPORT_MODULE(SmartPromo);
 
 RCT_EXPORT_METHOD(startCampaign:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
 {
-    SmartPromo *sp = [[SmartPromo alloc] init: campaignID];
+    SmartPromo *sp = [SmartPromo new];
     [sp setupAccessKey:key andSecretKey:secret];
+    [sp setIsHomolog:[[config valueForKey:@"isHomolog"] boolValue]];
+    [sp setMetadata: [[config valueForKey:@"metadata"] stringValue]];
     
     [self parseCampaignColor:sp config:config];
     [self parseCampaignConsumer:sp config:config];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         UIViewController *vc = RCTPresentedViewController();
-        [sp go:vc];
+        [sp go: campaignID above: vc];
+    });
+}
+
+RCT_EXPORT_METHOD(startMultiCampaigns:(NSString *)headnote (NSString *)title (NSString *)message key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
+{
+    SmartPromo *sp = [SmartPromo new];
+    [sp setupAccessKey:key andSecretKey:secret];
+    [sp setIsHomolog:[[config valueForKey:@"isHomolog"] boolValue]];
+    [sp setMetadata: [[config valueForKey:@"metadata"] stringValue]];
+    
+    [self parseCampaignColor:sp config:config];
+    [self parseCampaignConsumer:sp config:config];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIViewController *vc = RCTPresentedViewController();
+        [vc pushViewController:[sp goMultiWithHeadnote: headnote title: title message: message] animated:true];
     });
 }
 
 RCT_EXPORT_METHOD(startScanner:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret consumerID:(NSString *)consumerID config:(NSDictionary *)config)
 {
-    SmartPromo *sp = [[SmartPromo alloc] init: campaignID];
+    SmartPromo *sp = [SmartPromo new];
     [sp setupAccessKey:key andSecretKey:secret];
     [sp setIsHomolog:[[config valueForKey:@"isHomolog"] boolValue]];
+    [sp setMetadata: [[config valueForKey:@"metadata"] stringValue]];
     
     [self parseCampaignColor:sp config:config];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         UIViewController *vc = RCTPresentedViewController();
-        [sp scanWithConsumerID:consumerID above:vc];
+        [sp scan: campaignID consumerID:consumerID above:vc];
     });
 }
 
@@ -459,12 +494,15 @@ Com NativeModules, basta usar da seguinte maneira.
     config.telefone = '555000552';
     config.aniversario = '1973-01-04';
     config.endereco = 'Rua sem nome;100;apto 101;ipanema;Porto Alegre;RS;90500000';
+    config.metadata = 'Qualquer coisa como String'; // Opcional
 
     // Caso queira utilizar o ambiente de homologação
     config.isHomolog = true;
        
     // Acionamento
     NativeModules.SmartPromo.startCampaign(campaign, key, secret, config);
+
+#### Campanha 
 
 > __campaignID__, __accessKey__, e __secretKey__ serão fornecidos pelo time da __Getmo__ para serem configurados no seu projeto.
 > 
@@ -477,6 +515,7 @@ Com NativeModules, basta usar da seguinte maneira.
     
     var config = {};
     config.color = '#0000CC'
+    config.metadata = 'Qualquer coisa como String'; // Opcional
     
     // Caso queira utilizar o ambiente de homologação
     config.isHomolog = true;
