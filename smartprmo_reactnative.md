@@ -66,7 +66,7 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startMultiCampaigns(String headnote, String title, String message, String accessKey, String secretKey, ReadableMap config) {
-        SmartPromo smartPromo = new SmartPromo(campaignID);
+        SmartPromo smartPromo = new SmartPromo();
         smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
 
         smartPromo = parseCampaignColor(smartPromo, config);
