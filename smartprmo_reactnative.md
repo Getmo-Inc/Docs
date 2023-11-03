@@ -33,12 +33,12 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import br.com.getmo.smartpromo.SmartPromo;
-import br.com.getmo.smartpromo.SmartPromo
-import br.com.getmo.smartpromo.models.FSPAddress
-import br.com.getmo.smartpromo.models.FSPConsumer
-import br.com.getmo.smartpromo.models.FSPGenre
-import java.text.SimpleDateFormat
-import android.graphics.Color
+import br.com.getmo.smartpromo.SmartPromo;
+import br.com.getmo.smartpromo.models.FSPAddress;
+import br.com.getmo.smartpromo.models.FSPConsumer;
+import br.com.getmo.smartpromo.models.FSPGenre;
+import java.text.SimpleDateFormat;
+import android.graphics.Color;
 
 public class SmartPromoStarter extends ReactContextBaseJavaModule {
     SmartPromoStarter(ReactApplicationContext context) {
@@ -58,8 +58,8 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
 
         smartPromo = parseCampaignColor(smartPromo, config);
         smartPromo = parseCampaignConsumer(smartPromo, config);
-        smartPromo.setIsHomolog(config.getBoolean("isHomolog"))
-        smartPromo.setMetadata(config.getString("metadata"))
+        smartPromo.setIsHomolog(config.getBoolean("isHomolog"));
+        smartPromo.setMetadata(config.getString("metadata"));
 
         smartPromo.go(campaignID, getCurrentActivity());
     }
@@ -71,8 +71,8 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
 
         smartPromo = parseCampaignColor(smartPromo, config);
         smartPromo = parseCampaignConsumer(smartPromo, config);
-        smartPromo.setIsHomolog(config.getBoolean("isHomolog"))
-        smartPromo.setMetadata(config.getString("metadata"))
+        smartPromo.setIsHomolog(config.getBoolean("isHomolog"));
+        smartPromo.setMetadata(config.getString("metadata"));
 
         smartPromo.goMulti(headnote, title, message, getCurrentActivity());
     }
@@ -83,8 +83,8 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
         smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
 
         smartPromo = parseCampaignColor(smartPromo, config);
-        smartPromo.setIsHomolog(config.getBoolean("isHomolog"))
-        smartPromo.setMetadata(config.getString("metadata"))
+        smartPromo.setIsHomolog(config.getBoolean("isHomolog"));
+        smartPromo.setMetadata(config.getString("metadata"));
         smartPromo.scan(campaignID, consumerID, getCurrentActivity());
     }
                                                                    
@@ -327,7 +327,7 @@ RCT_EXPORT_METHOD(startCampaign:(NSString *)campaignID key:(NSString *)key secre
     });
 }
 
-RCT_EXPORT_METHOD(startMultiCampaigns:(NSString *)headnote (NSString *)title (NSString *)message key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
+RCT_EXPORT_METHOD(startMultiCampaigns:(NSString *)headnote title:(NSString *)title message:(NSString *)message key:(NSString *)key secret:(NSString *)secret config:(NSDictionary *)config)
 {
     SmartPromo *sp = [SmartPromo new];
     [sp setupAccessKey:key andSecretKey:secret];
