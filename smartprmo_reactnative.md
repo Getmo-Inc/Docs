@@ -232,7 +232,7 @@ A seguir apresentamos os passos necessários para integrar a SDK iOS da soluçã
 __Passo 1.__ É necessário configurar a dependência da sdk Smartpromo no seu projeto, para isso altere o arquivo *Podfile* e insira a linha a seguir. 
 
 ```
-pod 'SmartPromo', '2.2.2'
+pod 'SmartPromo', '2.5.0'
 ```
 
 A seguir um arquivo Podfile de exemplo
@@ -337,10 +337,10 @@ RCT_EXPORT_METHOD(startMultiCampaigns:(NSString *)headnote title:(NSString *)tit
     [self parseCampaignColor:sp config:config];
     [self parseCampaignConsumer:sp config:config];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *vc = RCTPresentedViewController();
-        [vc pushViewController:[sp goMultiWithHeadnote: headnote title: title message: message] animated:true];
-    });
+    // dispatch_async(dispatch_get_main_queue(), ^{
+    //    UIViewController *vc = RCTPresentedViewController();
+    //    [vc pushViewController:[sp goMultiWithHeadnote: headnote title: title message: message] animated:true];
+    // });
 }
 
 RCT_EXPORT_METHOD(startScanner:(NSString *)campaignID key:(NSString *)key secret:(NSString *)secret consumerID:(NSString *)consumerID config:(NSDictionary *)config)
@@ -460,6 +460,11 @@ RCT_EXPORT_METHOD(startScanner:(NSString *)campaignID key:(NSString *)key secret
 O arquivo da implementação define o nome do módulo a ser exportado como __SmartPromo__ da mesma forma como foi feito no módulo android. Esse será o nome que ficará disponível em NativeModules para uso no React Native.
 
 Além disso, o arquivo exporta um método chamado 'start' que recebe 4 parâmetros: id, chave, segredo, e configurações da campanha
+
+Caso tenha problema com a importação do modulo iOS, adicione o seguinte importe no arquivo `AppDelegate.m`:
+```
+#import "RCTSmartPromoMod.h"
+```
 
 
 # Uso dos módulos no código React Native
