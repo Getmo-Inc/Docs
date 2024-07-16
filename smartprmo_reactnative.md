@@ -232,7 +232,7 @@ A seguir apresentamos os passos necessários para integrar a SDK iOS da soluçã
 __Passo 1.__ É necessário configurar a dependência da sdk Smartpromo no seu projeto, para isso altere o arquivo *Podfile* e insira a linha a seguir. 
 
 ```
-pod 'SmartPromo', '2.5.0'
+pod 'SmartPromo', '2.6.0'
 ```
 
 A seguir um arquivo Podfile de exemplo
