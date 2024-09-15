@@ -507,11 +507,6 @@ Com NativeModules, basta usar da seguinte maneira.
     // Acionamento
     NativeModules.SmartPromo.startCampaign(campaign, key, secret, config);
 
-#### Campanha 
-
-> __campaignID__, __accessKey__, e __secretKey__ serão fornecidos pelo time da __Getmo__ para serem configurados no seu projeto.
-> 
-
 ### Iniciando a SDK no modo Scanner de notas:
     var campaign   = '[SEU_ID_DA_CAMPANHA]';
     var key        = '[SUA_KEY]';
@@ -527,6 +522,9 @@ Com NativeModules, basta usar da seguinte maneira.
     
     // Acionamento
     NativeModules.SmartPromo.startScanner(campaign, key, secret, consumerID, config);
+
+
+#### Campanha 
 
 > __campaignID__, __accessKey__, e __secretKey__ serão fornecidos pelo time da __Getmo__ para serem configurados no seu projeto.
 > 
