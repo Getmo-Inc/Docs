@@ -466,6 +466,7 @@ const { SmartPromoPlugin } = Plugins;
 ```
 
 ### Iniciando a SDK no modo campanha:
+```
 SmartPromoPlugin.startCampaign({
   campaignID: 'SEU_ID_DA_CAMPANHA',
   accessKey: 'SUA_KEY',
@@ -479,9 +480,11 @@ SmartPromoPlugin.startCampaign({
   address: 'Rua sem nome;100;apto 101;ipanema;Porto Alegre;RS;90500000',
   isHomolog: true, // Opcional
   metadata: 'Informação adicional' // Opcional
-}); 
+});
+```
 
 ### Iniciando a SDK no modo multi campanhas:
+```
 SmartPromoPlugin.startMultiCampaigns({
   headnote: 'Campanha especial',
   title: 'Promoção de Natal',
@@ -498,8 +501,10 @@ SmartPromoPlugin.startMultiCampaigns({
   isHomolog: true, // Opcional
   metadata: 'Informação adicional' // Opcional
 });
+```
 
 ### Iniciando a SDK no modo Scanner de notas:
+```
 SmartPromoPlugin.startScanner({
   campaignID: 'SEU_ID_DA_CAMPANHA',
   accessKey: 'SUA_KEY',
