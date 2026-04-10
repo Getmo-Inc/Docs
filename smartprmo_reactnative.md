@@ -32,7 +32,7 @@ import androidx.annotation.NonNull;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import br.com.getmo.smartpromo.SmartPromo;
+import com.facebook.react.bridge.ReadableMap;
 import br.com.getmo.smartpromo.SmartPromo;
 import br.com.getmo.smartpromo.models.FSPAddress;
 import br.com.getmo.smartpromo.models.FSPConsumer;
@@ -53,12 +53,10 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startCampaign(String campaignID, String accessKey, String secretKey, ReadableMap config) {
-        SmartPromo smartPromo = new SmartPromo();
-        smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
+        SmartPromo smartPromo = new SmartPromo(accessKey, secretKey, config.getBoolean("isHomolog"));
 
         smartPromo = parseCampaignColor(smartPromo, config);
         smartPromo = parseCampaignConsumer(smartPromo, config);
-        smartPromo.setIsHomolog(config.getBoolean("isHomolog"));
         smartPromo.setMetadata(config.getString("metadata"));
 
         smartPromo.go(campaignID, getCurrentActivity());
@@ -66,12 +64,10 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startMultiCampaigns(String headnote, String title, String message, String accessKey, String secretKey, ReadableMap config) {
-        SmartPromo smartPromo = new SmartPromo();
-        smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
+        SmartPromo smartPromo = new SmartPromo(accessKey, secretKey, config.getBoolean("isHomolog"));
 
         smartPromo = parseCampaignColor(smartPromo, config);
         smartPromo = parseCampaignConsumer(smartPromo, config);
-        smartPromo.setIsHomolog(config.getBoolean("isHomolog"));
         smartPromo.setMetadata(config.getString("metadata"));
 
         smartPromo.goMulti(headnote, title, message, getCurrentActivity());
@@ -79,13 +75,11 @@ public class SmartPromoStarter extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startScanner(String campaignID, String accessKey, String secretKey, String consumerID, ReadableMap config) {
-        SmartPromo smartPromo = new SmartPromo();
-        smartPromo.setupAccessKeyAndSecretKey(accessKey, secretKey);
+        SmartPromo smartPromo = new SmartPromo(accessKey, secretKey, config.getBoolean("isHomolog"));
 
         smartPromo = parseCampaignColor(smartPromo, config);
-        smartPromo.setIsHomolog(config.getBoolean("isHomolog"));
         smartPromo.setMetadata(config.getString("metadata"));
-        smartPromo.scan(campaignID, consumerID, getCurrentActivity());
+        smartPromo.goScan(campaignID, consumerID, getCurrentActivity());
     }
                                                                    
     private SmartPromo parseCampaignColor( SmartPromo smartPromo, ReadableMap config ) {
@@ -229,55 +223,17 @@ Isso é feito na linha: *packages.add(new MyAppPackage());*
 
 A seguir apresentamos os passos necessários para integrar a SDK iOS da solução Smartpromo ao seu projeto de aplicação.
 
-__Passo 1.__ É necessário configurar a dependência da sdk Smartpromo no seu projeto, para isso altere o arquivo *Podfile* e insira a linha a seguir. 
+__Passo 1.__ É necessário configurar a dependência da sdk Smartpromo no seu projeto. SmartPromo é compatível com `iOS 14+`.
 
-```
-pod 'SmartPromo', '2.6.4'
-```
+#### Swift Package Manager
+1. No Xcode, vá em **File → Add Package Dependencies...**
+2. Insira a URL do repositório: `https://github.com/Getmo-Inc/SmartPromoiOS.git`
+3. Selecione a versão desejada (ex: `3.0.0`)
+4. Clique em **Add Package**
 
-A seguir um arquivo Podfile de exemplo
-```
-require_relative '../node_modules/react-native/scripts/react_native_pods'
-require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+> **Nota:** O CocoaPods não é mais suportado. A última versão disponível via CocoaPods é a `2.6.4` e não receberá mais atualizações. Recomendamos migrar para o Swift Package Manager.
 
-platform :ios, '10.0'
-
-target 'SmartPromoModule' do
-  config = use_native_modules!
-
-  # pod que nos interessa
-  pod 'SmartPromo'
-
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # to enable hermes on iOS, change `false` to `true` and then install pods
-    :hermes_enabled => false
-  )
-
-  target 'SmartPromoModuleTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
-  # Enables Flipper.
-  #
-  # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable the next line.
-  use_flipper!()
-
-  post_install do |installer|
-    react_native_post_install(installer)
-  end
-end
-```
-
-Feito isso é preciso atualizar o seu projeto para baixar essa dependência. Para isso execute o comando abaixo na pasta ios do project React Native.
-
-```
-pod install
-```
-
-> __Importante:__ a documentação da biblioteca Smartpromo iOS está disponível [aqui](https://reactnative.dev/docs/native-modules-ios). 
+> __Importante:__ a documentação da biblioteca Smartpromo iOS está disponível [aqui](https://github.com/Getmo-Inc/SmartPromoiOS). 
 
 __Passo 2.__ Abra o XCode e crie 2 novos arquivos
 
