@@ -228,7 +228,7 @@ __Passo 1.__ É necessário configurar a dependência da sdk Smartpromo no seu p
 #### Swift Package Manager
 1. No Xcode, vá em **File → Add Package Dependencies...**
 2. Insira a URL do repositório: `https://github.com/Getmo-Inc/SmartPromoiOS.git`
-3. Selecione a versão desejada (ex: `3.0.3`)
+3. Selecione a versão desejada (ex: `3.0.5`)
 4. Clique em **Add Package**
 
 > **Nota:** O CocoaPods não é mais suportado. A última versão disponível via CocoaPods é a `2.6.4` e não receberá mais atualizações. Recomendamos migrar para o Swift Package Manager.
